@@ -1,4 +1,4 @@
-// 얘는 샘플코드로 온 원본임 수정 금지
+// 샘플코드 원본임 수정 금지
 
 // 참가자가 전략을 수정할 진입 파일. 보조 헤더를 함께 제출한다.
 // stderr는 게임당 1 MiB 이내이며 미공개 점수 -1은 실제 음수 점수가 아니다.
@@ -24,3 +24,6 @@ std::vector<std::string> decide(const p::View& view, const p::Init& init) {
 }
 
 int main() { return p::run(decide); }
+
+
+// 샘플코드 원본임 수정 금지
