@@ -173,6 +173,7 @@ struct Planner {
         int R = v.my_resource;
         int desiredF = (v.turn <= 15 ? 7 : (nonOwned >= 8 ? 7 : (nonOwned >= 4 ? 5 : 4)));
         if (v.turn > 125 && nonOwned > 0) desiredF = max(desiredF, 6);
+        if (v.turn > 125 && nonOwned > 0) desiredF = max(desiredF, 6);
 
         int makeF = 0, makeW = 0;
         if (v.turn == 1) {
