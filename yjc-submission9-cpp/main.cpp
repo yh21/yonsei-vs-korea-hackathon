@@ -84,33 +84,30 @@ struct Planner {
         return (b.x >= 5 && b.x <= 9) ? 30 : 15;
     }
 
+    // 상대 봇의 허점을 찌르는 건물 가치 산정
     int featureBonus(const p::Building& b, const p::View& v) const {
         int t = v.turn;
-        if (b.type == "PLAZA") return 50;
-        // 보급소는 여전히 좋지만 무리한 장거리 이동을 방지하도록 밸런스 조정
+        if (b.type == "PLAZA") return 60;
+        // 상대가 안 먹는 보급소(DEPOT)를 우리가 초반에 날먹하여 +15 자원 폭격
         if (b.type == "DEPOT") {
             bool claimed = b.id < (int)myDepotClaimed.size() && myDepotClaimed[b.id];
-            return claimed ? 5 : (t < 30 ? 110 : (t < 80 ? 60 : 15));
+            return claimed ? 0 : (t < 40 ? 140 : (t < 90 ? 70 : 10));
         }
-        // 초반 학생회관(HALL)과 공학관(ENG)의 가치를 대폭 올려 초반 스노우볼 차단 방지
-        if (b.type == "HALL") return t < 60 ? 115 : (t < 110 ? 55 : 15);
-        if (b.type == "ENG") return t < 70 ? 105 : (t < 120 ? 45 : 15);
-        if (b.type == "HOSPITAL") {
-            int bx = idPos[b.id].first;
-            return (t < 100 ? 35 : 12) + ((bx >= 5 && bx <= 9) ? 15 : 0);
-        }
-        if (b.type == "LIBRARY") return t < 100 ? 35 : 10;
-        if (b.type == "STATION") return t < 110 ? 20 : 10;
+        if (b.type == "ENG") return t < 65 ? 120 : (t < 110 ? 50 : 15);
+        if (b.type == "HALL") return t < 60 ? 110 : (t < 110 ? 50 : 15);
+        if (b.type == "HOSPITAL") return t < 100 ? 45 : 15;
+        if (b.type == "LIBRARY") return t < 100 ? 30 : 10;
+        if (b.type == "STATION") return t < 110 ? 25 : 10;
         return 0;
     }
 
     int buildingValue(const p::Building& b, const p::View& v) const {
         int val = expectedScore(b) * 4 + featureBonus(b, v);
-        if (b.owner == opp) val = val * 19 / 10 + 45;
-        else if (b.owner == "N") val += 15;
+        if (b.owner == opp) val = val * 22 / 10 + 60; // 상대 거점 빼앗기 가중치 강화
+        else if (b.owner == "N") val += 20;
         else val = val / 5;
-        if (b.x >= 5 && b.x <= 9) val += 15;
-        if (v.turn > 120 && b.owner == opp) val += 70;
+        if (b.x >= 5 && b.x <= 9) val += 20;
+        if (v.turn > 115 && b.owner == opp) val += 80;
         return val;
     }
 
@@ -169,11 +166,10 @@ struct Planner {
         int wcost = max(2, 3 - eng);
         int nonOwned = 0; for (auto &b : v.buildings) if (b.owner != me) nonOwned++;
 
-        // 동적 깃발병(F) 상한: 미점령 건물이 많을 때는 최대 6~7마리까지 채용
+        // 동적 깃발병(F) 최적 배분
         int R = v.my_resource;
-        int desiredF = (v.turn <= 15 ? 7 : (nonOwned >= 8 ? 7 : (nonOwned >= 4 ? 5 : 4)));
-        if (v.turn > 125 && nonOwned > 0) desiredF = max(desiredF, 6);
-        if (v.turn > 125 && nonOwned > 0) desiredF = max(desiredF, 6);
+        int desiredF = (v.turn <= 15 ? 6 : (nonOwned >= 7 ? 6 : (nonOwned >= 3 ? 5 : 4)));
+        if (v.turn > 120 && nonOwned > 0) desiredF = max(desiredF, 6);
 
         int makeF = 0, makeW = 0;
         if (v.turn == 1) {
@@ -181,7 +177,7 @@ struct Planner {
             if (R >= wcost) { makeW = R / wcost; R -= makeW * wcost; }
         } else {
             int needF = max(0, desiredF - totalF);
-            makeF = min({needF, (v.turn < 25 ? 2 : 1), R / 5});
+            makeF = min({needF, (v.turn < 20 ? 2 : 1), R / 5});
             R -= 5 * makeF;
             makeW = R / wcost; // 나머지 W 올인
             R -= makeW * wcost;
@@ -196,10 +192,9 @@ struct Planner {
                 int d = dist[idx(sx, sy)][idx(b.x, b.y)]; if (d >= INF) continue;
                 int val = buildingValue(b, v);
                 if (kind == "W") {
-                    int ef = enF[idx(b.x, b.y)]; if (ef) val += 220;
-                    if (b.owner == me) val += 20;
+                    int ef = enF[idx(b.x, b.y)]; if (ef) val += 260; // 상대 F 처단
+                    if (b.owner == me) val += 25;
                 }
-                // 거리가 멀면 기하급수적으로 패널티를 부여해 앞마당 건물 우선 확보
                 int util = val * 100 / (d + 2);
                 if (util > best) { best = util; pos = {b.x, b.y}; }
             }
@@ -245,15 +240,15 @@ struct Planner {
                 int urg = 3 * threatF + threatW; if (urg <= bestUrg) continue;
                 const p::Building *candSrc = nullptr; int candN = 0, bestSlack = -1;
                 for (auto *a : ownSt) if (a != b) {
-                    int az = idx(a->x, a->y), c = myW[az]; if (c <= 1) continue;
+                    int az = idx(a->x, a->y), c = myW[az]; if (c <= 2) continue;
                     int avail = c - 1;
-                    if (avail > bestSlack) { bestSlack = avail; candSrc = a; candN = min(5, avail); }
+                    if (avail > bestSlack) { bestSlack = avail; candSrc = a; candN = min(8, avail); }
                 }
                 if (candSrc && candN > 0) { bestUrg = urg; src = candSrc; dst = b; sendN = candN; }
             }
             if (!(src && dst && bestUrg > 0)) {
                 int bestGain = 1; src = nullptr; dst = nullptr; sendN = 0;
-                for (auto *a : ownSt) if (myW[idx(a->x, a->y)] > 1) {
+                for (auto *a : ownSt) if (myW[idx(a->x, a->y)] > 2) {
                     for (auto *b : ownSt) if (a != b) {
                         int ga = INF, gb = INF;
                         for (auto &q : v.buildings) if (q.owner != me) {
@@ -261,7 +256,7 @@ struct Planner {
                             gb = min(gb, dist[idx(b->x, b->y)][idx(q.x, q.y)]);
                         }
                         int gain = ga - gb;
-                        if (gain > bestGain) { bestGain = gain; src = a; dst = b; sendN = min(5, myW[idx(a->x, a->y)] - 1); }
+                        if (gain > bestGain) { bestGain = gain; src = a; dst = b; sendN = min(8, myW[idx(a->x, a->y)] - 1); }
                     }
                 }
             }
@@ -272,7 +267,7 @@ struct Planner {
             }
         }
 
-        // 깃발 이동
+        // 깃발 계획
         struct FMove { int src, count, target, dest; string dir; bool locked = false; };
         vector<FMove> fplans; vector<int> fAvail = myF; set<int> occupiedTargets;
         for (auto *bp : bOrder) {
@@ -345,34 +340,23 @@ struct Planner {
         vector<tuple<int,int,int>> wmoves;
         struct Crit { int pri, z, need; }; vector<Crit> crit;
 
-        // 1) 적 깃발병 처단
+        // 1) 적 깃발병 암살 (우선순위 최상)
         for (auto *bp : bOrder) if (bp->owner == me) {
             int z = idx(bp->x, bp->y);
-            if (enF[z] > 0) crit.push_back({100000 + buildingValue(*bp, v), z, enemyThreat[z] + 1});
+            if (enF[z] > 0) crit.push_back({100000 + buildingValue(*bp, v), z, enemyThreat[z] + 2});
         }
 
-        // 2) 깃발병 호위 + 2인 공격조
+        // 2) 깃발병 호위 + 상대 2인 분대 분쇄용 공격조 (최소 3~5마리 배정)
         for (auto &fp : fplans) {
             int z = fp.dest; bool isB = building_at(v, z % W, z / W) != nullptr;
             if (isB) {
-                int minEscort = (enW[z] > 0 || enemyThreat[z] > 0) ? (enemyThreat[z] + 1) : 1;
+                // 상대 W_SPLIT=2를 완전히 찍어누르기 위해 최소 3마리 이상 붙임
+                int minEscort = max(3, enemyThreat[z] + 1);
                 auto *b = building_at(v, z % W, z / W);
-                if (b && b->owner == opp) minEscort = max(minEscort, 2);
+                if (b && b->owner == opp) minEscort = max(minEscort, 4);
                 crit.push_back({90000 + (enemyFReach[z] * 20), z, minEscort});
             } else if (enemyThreat[z] > 0) {
-                crit.push_back({80000, z, enemyThreat[z] + 1});
-            }
-        }
-
-        // 3) 스마트 수비 픽켓 (W가 충분할 때 중요 자산 3~5곳에 1마리씩 배치)
-        if (totalW >= 22) {
-            vector<const p::Building*> ownVal;
-            for (auto *bp : bOrder) if (bp->owner == me) ownVal.push_back(bp);
-            sort(ownVal.begin(), ownVal.end(), [&](auto *a, auto *b) { return buildingValue(*a, v) > buildingValue(*b, v); });
-            int cap = min((int)ownVal.size(), totalW >= 65 ? 5 : 3);
-            for (int i = 0; i < cap; i++) {
-                int z = idx(ownVal[i]->x, ownVal[i]->y);
-                crit.push_back({30000 + buildingValue(*ownVal[i], v), z, 1});
+                crit.push_back({80000, z, enemyThreat[z] + 2});
             }
         }
 
@@ -405,18 +389,19 @@ struct Planner {
             if (need <= 0) secured[z] = 1;
         }
 
-        // 4) 둠스택 화력 집중
+        // 3) [핵심 카운터] 대규모 헤비 둠스택(Heavy Doomstack) 결집
+        // 상대의 2인 쪼개기 분대를 마주치는 족족 박살 내기 위해 단일 거점으로 전 병력 집중
         vector<pair<int,int>> warGoals;
-        for (int z : cellOrder) if (enF[z] > 0) warGoals.push_back({z, 1100 + 50 * enF[z]});
-        for (auto *bp : bOrder) { const auto &b = *bp; if (b.owner == opp) warGoals.push_back({idx(b.x, b.y), 700 + 2 * buildingValue(b, v)}); }
-        for (auto *bp : bOrder) { const auto &b = *bp; if (b.owner != me) warGoals.push_back({idx(b.x, b.y), 350 + buildingValue(b, v)}); }
-        if (warGoals.empty()) warGoals.push_back({idx(init.bases[opp == "Y" ? 0 : 1].first, init.bases[opp == "Y" ? 0 : 1].second), 200});
+        for (int z : cellOrder) if (enF[z] > 0) warGoals.push_back({z, 1500 + 100 * enF[z]});
+        for (auto *bp : bOrder) { const auto &b = *bp; if (b.owner == opp) warGoals.push_back({idx(b.x, b.y), 900 + 3 * buildingValue(b, v)}); }
+        for (auto *bp : bOrder) { const auto &b = *bp; if (b.owner != me) warGoals.push_back({idx(b.x, b.y), 500 + buildingValue(b, v)}); }
+        if (warGoals.empty()) warGoals.push_back({idx(init.bases[opp == "Y" ? 0 : 1].first, init.bases[opp == "Y" ? 0 : 1].second), 300});
 
         for (int s : cellOrder) if (wAvail[s] > 0) {
             auto [x, y] = xy(s); int best = -INF, tz = -1;
             for (auto [gz, val] : warGoals) {
                 int d = dist[s][gz]; if (d >= INF) continue;
-                int u = val - 22 * d; if (u > best) { best = u; tz = gz; }
+                int u = val - 18 * d; if (u > best) { best = u; tz = gz; }
             }
             if (tz < 0) { reservedStay[s] += wAvail[s]; plannedArrive[s] += wAvail[s]; wAvail[s] = 0; continue; }
             int n = wAvail[s]; auto [tx, ty] = xy(tz);
@@ -427,7 +412,8 @@ struct Planner {
                 int q = idx(nx, ny); int dd = dist[q][tz]; if (dd >= INF) continue;
                 int hostile = enW[q], friendly = plannedArrive[q];
                 int danger = max(0, hostile - (n + friendly));
-                int sc = dd * 30 + danger * 85 - min(20, friendly) * 2;
+                // 아군이 많이 모이는 곳(friendly)으로 갈수록 엄청난 가산점 부여 (뭉치기 유도)
+                int sc = dd * 25 + danger * 100 - min(30, friendly) * 5;
                 if (sc < bestStepScore) { bestStepScore = sc; dz = q; }
             }
             if (dz == s) { reservedStay[s] += n; plannedArrive[s] += n; }
@@ -435,7 +421,7 @@ struct Planner {
             wAvail[s] = 0;
         }
 
-        // 5) 깃발 이동 안전 검증
+        // 4) 깃발 이동 안전 검증
         vector<tuple<int,int,int>> fmoves;
         vector<int> finalFStay(cells, 0), finalFArrive = fixedW;
         for (auto &fp : fplans) {
@@ -456,7 +442,7 @@ struct Planner {
             else { fmoves.push_back({s, dz, fp.count}); finalFArrive[dz] += fp.count; }
         }
 
-        // 6) PRIORITY
+        // 5) PRIORITY 결정
         vector<const p::Building*> pr;
         for (auto *bp : bOrder) {
             int z = idx(bp->x, bp->y);
