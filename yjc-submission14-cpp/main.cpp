@@ -1,0 +1,580 @@
+// Version 14: Perfect Budgeting & Overwhelming Doomstack logic
+#include "protocol.hpp"
+#include <iostream>
+#include <vector>
+#include <string>
+#include <queue>
+#include <algorithm>
+#include <map>
+#include <set>
+#include <array>
+#include <tuple>
+#include <numeric>
+
+using namespace std;
+
+namespace {
+constexpr int INF = 1e9;
+struct Planner {
+    bool ready = false;
+    int W = 15, H = 15, N = 225;
+    string me, opp;
+    vector<vector<int>> dist;
+    vector<int> knownScore;
+    vector<int> symId;
+    vector<char> myDepotClaimed;
+    vector<string> dirOrder;
+    vector<pair<int,int>> idPos;
+    vector<string> idType;
+
+    int idx(int x, int y) const { return y * W + x; }
+    pair<int,int> xy(int v) const { return {v % W, v / W}; }
+    bool pass(const p::Init& init, int x, int y) const { return init.passable(x, y); }
+    int homeKeyCell(int z) const {
+        auto [x, y] = xy(z);
+        if (me == "K") { x = W - 1 - x; y = H - 1 - y; }
+        return y * W + x;
+    }
+    int homeKeyXY(int x, int y) const {
+        if (me == "K") { x = W - 1 - x; y = H - 1 - y; }
+        return y * W + x;
+    }
+
+    void init_once(const p::Init& init) {
+        if (ready) return;
+        ready = true; W = init.width; H = init.height; N = W * H; me = init.team; opp = init.opp;
+        dirOrder = (init.base().first * 2 > W - 1) ? vector<string>{"D", "U", "R", "L"} : vector<string>{"U", "D", "L", "R"};
+        int maxid = 0; for (auto &b : init.buildings) maxid = max(maxid, b.id);
+        idPos.resize(maxid + 1); idType.resize(maxid + 1);
+        knownScore.assign(maxid + 1, -1); symId.assign(maxid + 1, -1); myDepotClaimed.assign(maxid + 1, 0);
+        for (auto &b : init.buildings) { idPos[b.id] = {b.x, b.y}; idType[b.id] = b.type; if (b.type == "PLAZA") knownScore[b.id] = 3; }
+        map<pair<int,int>, int> at;
+        for (auto &b : init.buildings) at[{b.x, b.y}] = b.id;
+        for (auto &b : init.buildings) { auto it = at.find({W - 1 - b.x, H - 1 - b.y}); if (it != at.end()) symId[b.id] = it->second; }
+        
+        dist.assign(N, vector<int>(N, INF));
+        const int dx[4] = {0, 0, -1, 1}, dy[4] = {-1, 1, 0, 0};
+        for (int s = 0; s < N; s++) {
+            auto [sx, sy] = xy(s); if (!pass(init, sx, sy)) continue;
+            queue<int> q; dist[s][s] = 0; q.push(s);
+            while (!q.empty()) {
+                int v = q.front(); q.pop(); auto [x, y] = xy(v);
+                for (int k = 0; k < 4; k++) {
+                    int nx = x + dx[k], ny = y + dy[k]; if (!pass(init, nx, ny)) continue;
+                    int u = idx(nx, ny);
+                    if (dist[s][u] > dist[s][v] + 1) { dist[s][u] = dist[s][v] + 1; q.push(u); }
+                }
+            }
+        }
+    }
+
+    void update_memory(const p::View& v) {
+        for (auto &b : v.buildings) {
+            if (b.id >= (int)knownScore.size()) continue;
+            if (b.score >= 0) {
+                knownScore[b.id] = b.score;
+                int s = symId[b.id]; if (s >= 0) knownScore[s] = b.score;
+            }
+            if (b.type == "DEPOT" && b.owner == me) myDepotClaimed[b.id] = 1;
+        }
+    }
+
+    int expectedScore(const p::Building& b) const {
+        if (b.id < (int)knownScore.size() && knownScore[b.id] >= 0) return knownScore[b.id] * 10;
+        if (b.type == "PLAZA") return 30;
+        return (b.x >= 5 && b.x <= 9) ? 30 : 15;
+    }
+
+    int featureBonus(const p::Building& b, const p::View& v) const {
+        int t = v.turn;
+        if (b.type == "PLAZA") return 50;
+        if (b.type == "DEPOT") {
+            bool claimed = b.id < (int)myDepotClaimed.size() && myDepotClaimed[b.id];
+            return claimed ? 5 : (t < 30 ? 110 : (t < 80 ? 60 : 15));
+        }
+        if (b.type == "HALL") return t < 60 ? 115 : (t < 110 ? 55 : 15);
+        if (b.type == "ENG") return t < 70 ? 105 : (t < 120 ? 45 : 15);
+        if (b.type == "HOSPITAL") {
+            int bx = idPos[b.id].first;
+            return (t < 100 ? 35 : 12) + ((bx >= 5 && bx <= 9) ? 15 : 0);
+        }
+        if (b.type == "LIBRARY") return t < 100 ? 35 : 10;
+        if (b.type == "STATION") return t < 110 ? 20 : 10;
+        return 0;
+    }
+
+    int buildingValue(const p::Building& b, const p::View& v) const {
+        int val = expectedScore(b) * 4 + featureBonus(b, v);
+        if (b.owner == opp) val = val * 19 / 10 + 45;
+        else if (b.owner == "N") val += 15;
+        else val = val / 5;
+        if (b.x >= 5 && b.x <= 9) val += 15;
+        if (v.turn > 120 && b.owner == opp) val += 70;
+        return val;
+    }
+
+    string best_step(const p::Init& init, int x, int y, int tx, int ty) const {
+        if (x == tx && y == ty) return "";
+        int best = INF; string ans = "";
+        for (const string &d : dirOrder) {
+            auto [dx, dy] = p::delta(d); int nx = x + dx, ny = y + dy;
+            if (!pass(init, nx, ny)) continue;
+            int dd = dist[idx(nx, ny)][idx(tx, ty)];
+            if (dd < best) { best = dd; ans = d; }
+        }
+        return ans;
+    }
+
+    const p::Building* building_at(const p::View& v, int x, int y) const {
+        for (auto &b : v.buildings) if (b.x == x && b.y == y) return &b;
+        return nullptr;
+    }
+
+    vector<string> decide(const p::View& v, const p::Init& init) {
+        init_once(init); update_memory(v);
+        vector<string> out;
+        int cells = N;
+        vector<int> myF(cells), myW(cells), myS(cells), enF(cells), enW(cells), enS(cells);
+        vector<int> cellOrder(cells); iota(cellOrder.begin(), cellOrder.end(), 0);
+        sort(cellOrder.begin(), cellOrder.end(), [&](int a, int b) { return homeKeyCell(a) < homeKeyCell(b); });
+        vector<const p::Building*> bOrder;
+        for (auto &b : v.buildings) bOrder.push_back(&b);
+        sort(bOrder.begin(), bOrder.end(), [&](auto a, auto b) { return homeKeyXY(a->x, a->y) < homeKeyXY(b->x, b->y); });
+
+        int totalF = 0, totalW = 0, oppWTotal = 0, oppFTotal = 0;
+        for (auto &u : v.units) {
+            int z = idx(u.x, u.y);
+            if (u.team == me) {
+                if (u.kind == "F") myF[z] += u.count, totalF += u.count;
+                else if (u.kind == "W") myW[z] += u.count, totalW += u.count;
+            } else {
+                if (u.kind == "F") enF[z] += u.count, oppFTotal += u.count;
+                else if (u.kind == "W") enW[z] += u.count, oppWTotal += u.count;
+                else enS[z] += u.count;
+            }
+        }
+
+        int eng = 0, halls = 0, stations = 0, libs = 0;
+        vector<pair<int,int>> spawnSites; spawnSites.push_back(init.base());
+        for (auto &b : v.buildings) {
+            if (b.owner == me) {
+                if (b.type == "ENG") eng++;
+                if (b.type == "HALL") halls++;
+                if (b.type == "STATION") stations++;
+                if (b.type == "LIBRARY") libs++;
+                if (b.type == "HOSPITAL") spawnSites.push_back({b.x, b.y});
+            }
+        }
+        sort(spawnSites.begin(), spawnSites.end(), [&](auto a, auto b) { return homeKeyXY(a.first, a.second) < homeKeyXY(b.first, b.second); });
+        int wcost = max(2, 3 - eng);
+        int nonOwned = 0; for (auto &b : v.buildings) if (b.owner != me) nonOwned++;
+
+        // 🔥 Version 14 핵심 패치: 완벽한 예산(Budget) 통제
+        // 수입과 점령 비용, 자원 상한선(40)을 톱니바퀴처럼 계산해서 단 1의 돈도 낭비하지 않음
+        int R = v.my_resource;
+        int capture_cost = 0;
+        for (auto *bp : bOrder) {
+            if (bp->owner != me && myF[idx(bp->x, bp->y)] > 0) {
+                // 도서관 있으면 비용 1 할인 (최소 1)
+                int cost = (bp->type == "PLAZA" ? 4 : 2) - (libs > 0 ? 1 : 0);
+                capture_cost += max(1, cost);
+            }
+        }
+        
+        int expected_income = 10 + halls * 2; // 다음 턴 수입 예측
+        int needed_reserve = max(0, capture_cost - expected_income); // 수입으로 커버 안되는 점령비용 킵
+        int min_spend = max(0, R + expected_income - 40); // 40 상한선 뚫려서 증발하는 거 방지용 최소 소비액
+        
+        int budget = R - needed_reserve;
+        if (budget < min_spend) budget = min_spend; 
+        budget = clamp(budget, 0, R);
+
+        int desiredF = (v.turn <= 15 ? 7 : (nonOwned >= 8 ? 7 : (nonOwned >= 4 ? 5 : 4)));
+        if (v.turn > 125 && nonOwned > 0) desiredF = max(desiredF, 6);
+
+        int makeF = 0, makeW = 0;
+        if (v.turn == 1) {
+            makeF = min(2, budget / 5); budget -= 5 * makeF;
+            if (budget >= wcost) { makeW = budget / wcost; budget -= makeW * wcost; }
+        } else {
+            int needF = max(0, desiredF - totalF);
+            makeF = min({needF, (v.turn < 25 ? 2 : 1), budget / 5});
+            budget -= 5 * makeF;
+            makeW = budget / wcost; // 남는 돈은 싹 다 W 둠스택에 올인
+            budget -= makeW * wcost;
+        }
+
+        auto targetValueFrom = [&](int sx, int sy, const string& kind) -> pair<int, pair<int,int>> {
+            int best = -INF; pair<int,int> pos = init.base();
+            for (auto *bp : bOrder) {
+                const auto &b = *bp;
+                if (kind == "F" && b.owner == me) continue;
+                int d = dist[idx(sx, sy)][idx(b.x, b.y)]; if (d >= INF) continue;
+                int val = buildingValue(b, v);
+                if (kind == "W") {
+                    int ef = enF[idx(b.x, b.y)]; if (ef) val += 220;
+                    if (b.owner == me) val += 20;
+                }
+                int util = val * 100 / (d + 2);
+                if (util > best) { best = util; pos = {b.x, b.y}; }
+            }
+            return {best, pos};
+        };
+
+        auto bestSpawnSite = [&](const string& kind) -> pair<int,int> {
+            int best = -INF; pair<int,int> site = init.base();
+            for (auto s : spawnSites) {
+                auto [u, t] = targetValueFrom(s.first, s.second, kind);
+                if (u > best) { best = u; site = s; }
+            }
+            return site;
+        };
+
+        auto emitSpawn = [&](const string& kind, int n, pair<int,int> site) {
+            if (n <= 0) return;
+            if (site == init.base()) out.push_back(p::spawn(kind, n));
+            else out.push_back(p::spawn(kind, n, site.first, site.second));
+            int z = idx(site.first, site.second);
+            if (kind == "F") myF[z] += n, totalF += n;
+            else if (kind == "W") myW[z] += n, totalW += n;
+        };
+
+        emitSpawn("F", makeF, bestSpawnSite("F"));
+        emitSpawn("W", makeW, bestSpawnSite("W"));
+
+        // 텔레포트
+        vector<int> fixedW(cells, 0);
+        if (stations >= 2) {
+            vector<const p::Building*> ownSt;
+            for (auto *bp : bOrder) if (bp->owner == me && bp->type == "STATION") ownSt.push_back(bp);
+            const p::Building *src = nullptr, *dst = nullptr; int sendN = 0, bestUrg = -1;
+            for (auto *b : ownSt) {
+                int bz = idx(b->x, b->y), threatF = 0, threatW = 0;
+                for (int z : cellOrder) {
+                    if (enF[z] || enW[z]) {
+                        int d = dist[z][bz];
+                        if (d <= 4) threatF += enF[z] * (5 - d);
+                        if (d <= 3) threatW += enW[z] * (4 - d);
+                    }
+                }
+                int urg = 3 * threatF + threatW; if (urg <= bestUrg) continue;
+                const p::Building *candSrc = nullptr; int candN = 0, bestSlack = -1;
+                for (auto *a : ownSt) if (a != b) {
+                    int az = idx(a->x, a->y), c = myW[az]; if (c <= 1) continue;
+                    int avail = c - 1;
+                    if (avail > bestSlack) { bestSlack = avail; candSrc = a; candN = min(5, avail); }
+                }
+                if (candSrc && candN > 0) { bestUrg = urg; src = candSrc; dst = b; sendN = candN; }
+            }
+            if (!(src && dst && bestUrg > 0)) {
+                int bestGain = 1; src = nullptr; dst = nullptr; sendN = 0;
+                for (auto *a : ownSt) if (myW[idx(a->x, a->y)] > 1) {
+                    for (auto *b : ownSt) if (a != b) {
+                        int ga = INF, gb = INF;
+                        for (auto &q : v.buildings) if (q.owner != me) {
+                            ga = min(ga, dist[idx(a->x, a->y)][idx(q.x, q.y)]);
+                            gb = min(gb, dist[idx(b->x, b->y)][idx(q.x, q.y)]);
+                        }
+                        int gain = ga - gb;
+                        if (gain > bestGain) { bestGain = gain; src = a; dst = b; sendN = min(5, myW[idx(a->x, a->y)] - 1); }
+                    }
+                }
+            }
+            if (src && dst && sendN > 0) {
+                out.push_back(p::tele(src->x, src->y, "W", sendN, dst->x, dst->y));
+                myW[idx(src->x, src->y)] -= sendN;
+                fixedW[idx(dst->x, dst->y)] += sendN;
+            }
+        }
+
+        // 깃발 이동
+        struct FMove { int src, count, target, dest; string dir; bool locked = false; };
+        vector<FMove> fplans; vector<int> fAvail = myF; set<int> occupiedTargets;
+        for (auto *bp : bOrder) {
+            const auto &b = *bp; int z = idx(b.x, b.y);
+            if (b.owner != me && fAvail[z] > 0) {
+                fplans.push_back({z, 1, z, z, "", true});
+                fAvail[z]--;
+                occupiedTargets.insert(b.id);
+            }
+        }
+        vector<int> targetIds;
+        for (auto *bp : bOrder) if (bp->owner != me && !occupiedTargets.count(bp->id)) targetIds.push_back(bp->id);
+
+        struct PairCand { int util, src, bid; }; vector<PairCand> cand;
+        for (int z : cellOrder) if (fAvail[z] > 0) {
+            auto [x, y] = xy(z);
+            for (int bid : targetIds) {
+                auto &b = v.buildings[bid];
+                int d = dist[z][idx(b.x, b.y)]; if (d >= INF) continue;
+                cand.push_back({buildingValue(b, v) * 100 / (d + 2), z, bid});
+            }
+        }
+        sort(cand.begin(), cand.end(), [&](auto &a, auto &b) {
+            if (a.util != b.util) return a.util > b.util;
+            return homeKeyCell(a.src) < homeKeyCell(b.src);
+        });
+        set<int> usedBid;
+        for (auto &c : cand) {
+            if (fAvail[c.src] <= 0 || usedBid.count(c.bid)) continue;
+            auto &b = v.buildings[c.bid]; auto [x, y] = xy(c.src);
+            string d = best_step(init, x, y, b.x, b.y);
+            int dz = c.src;
+            if (!d.empty()) { auto [dx, dy] = p::delta(d); dz = idx(x + dx, y + dy); }
+            fplans.push_back({c.src, 1, c.bid, dz, d, false});
+            fAvail[c.src]--;
+            usedBid.insert(c.bid);
+        }
+        for (int z : cellOrder) while (fAvail[z] > 0) {
+            int best = -INF, bid = -1; auto [x, y] = xy(z);
+            for (auto *bp : bOrder) {
+                const auto &b = *bp;
+                if (b.owner != me) {
+                    int d = dist[z][idx(b.x, b.y)]; if (d >= INF) continue;
+                    int u = buildingValue(b, v) * 100 / (d + 2);
+                    if (u > best) { best = u; bid = b.id; }
+                }
+            }
+            if (bid < 0) { fplans.push_back({z, fAvail[z], z, z, "", false}); fAvail[z] = 0; break; }
+            auto &b = v.buildings[bid]; string d = best_step(init, x, y, b.x, b.y);
+            int dz = z;
+            if (!d.empty()) { auto [dx, dy] = p::delta(d); dz = idx(x + dx, y + dy); }
+            fplans.push_back({z, 1, bid, dz, d, false});
+            fAvail[z]--;
+        }
+
+        // 적 위협도
+        vector<int> enemyThreat(cells, 0), enemyFReach(cells, 0);
+        const vector<string> dirs = {"U", "D", "L", "R"};
+        for (int z : cellOrder) if (pass(init, z % W, z / W)) {
+            int x = z % W, y = z / W, th = enW[z], fr = enF[z];
+            for (auto &d : dirs) {
+                auto [dx, dy] = p::delta(d); int nx = x + dx, ny = y + dy;
+                if (pass(init, nx, ny)) { th += enW[idx(nx, ny)]; fr += enF[idx(nx, ny)]; }
+            }
+            enemyThreat[z] = th; enemyFReach[z] = fr;
+        }
+
+        vector<int> wAvail = myW;
+        vector<int> reservedStay(cells, 0), plannedArrive = fixedW;
+        vector<tuple<int,int,int>> wmoves;
+        struct Crit { int pri, z, need; }; vector<Crit> crit;
+
+        for (auto *bp : bOrder) if (bp->owner == me) {
+            int z = idx(bp->x, bp->y);
+            if (enF[z] > 0) crit.push_back({100000 + buildingValue(*bp, v), z, enemyThreat[z] + 1});
+        }
+
+        for (auto &fp : fplans) {
+            int z = fp.dest; bool isB = building_at(v, z % W, z / W) != nullptr;
+            if (isB) {
+                int minEscort = (enW[z] > 0 || enemyThreat[z] > 0) ? (enemyThreat[z] + 1) : 1;
+                auto *b = building_at(v, z % W, z / W);
+                if (b && b->owner == opp) minEscort = max(minEscort, 2);
+                crit.push_back({90000 + (enemyFReach[z] * 20), z, minEscort});
+            } else if (enemyThreat[z] > 0) {
+                crit.push_back({80000, z, enemyThreat[z] + 1});
+            }
+        }
+
+        if (totalW >= 22) {
+            vector<const p::Building*> ownVal;
+            for (auto *bp : bOrder) if (bp->owner == me) ownVal.push_back(bp);
+            sort(ownVal.begin(), ownVal.end(), [&](auto *a, auto *b) { return buildingValue(*a, v) > buildingValue(*b, v); });
+            int cap = min((int)ownVal.size(), totalW >= 65 ? 5 : 3);
+            for (int i = 0; i < cap; i++) {
+                int z = idx(ownVal[i]->x, ownVal[i]->y);
+                crit.push_back({30000 + buildingValue(*ownVal[i], v), z, 1});
+            }
+        }
+
+        sort(crit.begin(), crit.end(), [&](auto &a, auto &b) {
+            if (a.pri != b.pri) return a.pri > b.pri;
+            return homeKeyCell(a.z) < homeKeyCell(b.z);
+        });
+
+        vector<int> secured(cells, 0);
+        for (auto &c : crit) {
+            int z = c.z; if (secured[z]) continue;
+            int need = max(0, c.need - plannedArrive[z]);
+            auto [x, y] = xy(z);
+            int capacity = wAvail[z];
+            for (auto &d : dirOrder) {
+                auto [dx, dy] = p::delta(d); int sx = x - dx, sy = y - dy;
+                if (pass(init, sx, sy)) capacity += wAvail[idx(sx, sy)];
+            }
+            if (capacity < need) continue;
+            int take = min(need, wAvail[z]);
+            if (take) { reservedStay[z] += take; wAvail[z] -= take; plannedArrive[z] += take; need -= take; }
+            for (auto &d : dirOrder) {
+                if (need <= 0) break;
+                auto [dx, dy] = p::delta(d); int sx = x - dx, sy = y - dy;
+                if (!pass(init, sx, sy)) continue;
+                int ss = idx(sx, sy);
+                int n = min(need, wAvail[ss]);
+                if (n) { wAvail[ss] -= n; wmoves.push_back({ss, z, n}); plannedArrive[z] += n; need -= n; }
+            }
+            if (need <= 0) secured[z] = 1;
+        }
+
+        // 🔥 Version 14 핵심 패치: W 할당 상한(goalNeed) 해제로 압도적 둠스택 형성
+        vector<int> goalValue(cells, 0), goalNeed(cells, 0), goalAssigned = plannedArrive;
+        auto addGoal = [&](int z, int value, int need) {
+            goalValue[z] = max(goalValue[z], value);
+            goalNeed[z] = max(goalNeed[z], need);
+        };
+        vector<int> flagETA(cells, INF);
+        for (int z : cellOrder) if (myF[z])
+            for (int q : cellOrder) flagETA[q] = min(flagETA[q], dist[z][q]);
+        for (int z : cellOrder) {
+            // 적군 위협이 있을 때 쪼개지지 않도록 필요 병력을 최소 2배 이상 부풀려서 둠스택 유도
+            if (enF[z]) addGoal(z, 1100 + 50 * enF[z], enemyThreat[z] * 2 + 3);
+            if (enW[z]) addGoal(z, 600 + min(400, 4 * enW[z]), enemyThreat[z] * 2 + 3);
+        }
+        for (auto *bp : bOrder) {
+            const auto &b = *bp;
+            int z = idx(b.x,b.y);
+            if (b.owner != me) {
+                int value = b.owner == opp ? 700 + 2 * buildingValue(b,v) : 350 + buildingValue(b,v);
+                if (flagETA[z] > 3 && !enF[z]) value = value * 4 / (flagETA[z] + 1);
+                addGoal(z, value, enemyThreat[z] * 2 + 2); // 넉넉하게 할당
+            }
+        }
+        vector<int> sources;
+        for (int s : cellOrder) if (wAvail[s] > 0) sources.push_back(s);
+        sort(sources.begin(), sources.end(), [&](int a, int b) {
+            if (wAvail[a] != wAvail[b]) return wAvail[a] > wAvail[b];
+            return homeKeyCell(a) < homeKeyCell(b);
+        });
+        for (int s : sources) {
+            int left = wAvail[s];
+            auto [x,y] = xy(s);
+            while (left > 0) {
+                int tz=-1, best=-INF;
+                for (int z : cellOrder) if (goalValue[z]>0 && goalAssigned[z]<goalNeed[z]) {
+                    int d=dist[s][z]; if(d>=INF) continue;
+                    int utility=goalValue[z]*100/(d+4);
+                    if(utility>best) { best=utility; tz=z; }
+                }
+                bool overflow=false;
+                if(tz<0) {
+                    overflow=true;
+                    for(int z : cellOrder) if(enW[z] || enF[z]) {
+                        int d=dist[s][z]; if(d>=INF)continue;
+                        int utility=(enF[z]?1100:600)+min(300,3*enW[z])-25*d;
+                        if(utility>best) {best=utility;tz=z;}
+                    }
+                }
+                if(tz<0) {
+                    reservedStay[s]+=left; plannedArrive[s]+=left; break;
+                }
+                // 목표 지점에 남는 병력을 다 꼬라박아서 둠스택 완성
+                int n=overflow?left:min(left,goalNeed[tz]-goalAssigned[tz]);
+                int dz=s;
+                if(s!=tz) {
+                    int bestStep=INF;
+                    for(const auto &d : dirOrder) {
+                        auto [dx,dy]=p::delta(d); int nx=x+dx,ny=y+dy;
+                        if(!pass(init,nx,ny))continue;
+                        int q=idx(nx,ny),dd=dist[q][tz];
+                        int danger=max(0,enW[q]-(n+plannedArrive[q]));
+                        int score=dd*30+danger*85-min(20,plannedArrive[q])*2;
+                        if(score<bestStep) {bestStep=score;dz=q;}
+                    }
+                }
+                goalAssigned[tz]+=n;
+                if(dz==s) reservedStay[s]+=n;
+                else wmoves.push_back({s,dz,n});
+                plannedArrive[dz]+=n;
+                left-=n;
+            }
+            wAvail[s]=0;
+        }
+
+        // 5) 깃발 이동 안전 검증
+        vector<tuple<int,int,int>> fmoves;
+        vector<int> finalFStay(cells, 0), finalFArrive(cells, 0);
+        for (auto &fp : fplans) {
+            auto safe = [&](int z) { return plannedArrive[z] >= enemyThreat[z]; };
+            if (fp.locked || fp.dir.empty()) {
+                int chosen = fp.src;
+                if (!safe(fp.src)) {
+                    auto [sx, sy] = xy(fp.src);
+                    int bestCover = -1;
+                    for (const auto &d : dirOrder) {
+                        auto [dx, dy] = p::delta(d);
+                        if (!pass(init, sx + dx, sy + dy)) continue;
+                        int q = idx(sx + dx, sy + dy);
+                        if (safe(q) && plannedArrive[q] > bestCover) {
+                            bestCover = plannedArrive[q]; chosen = q;
+                        }
+                    }
+                }
+                if (chosen == fp.src) finalFStay[fp.src] += fp.count;
+                else { fmoves.push_back({fp.src, chosen, fp.count}); finalFArrive[chosen] += fp.count; }
+                continue;
+            }
+            int s = fp.src, dz = fp.dest; auto [x, y] = xy(s); auto &tb = v.buildings[fp.target];
+            if (!safe(dz)) {
+                int curd = dist[s][idx(tb.x, tb.y)], bestd = INF, bestz = s;
+                for (auto &d : dirOrder) {
+                    auto [dx, dy] = p::delta(d); int nx = x + dx, ny = y + dy;
+                    if (!pass(init, nx, ny)) continue;
+                    int z = idx(nx, ny); int dd = dist[z][idx(tb.x, tb.y)];
+                    if (dd <= curd && safe(z) && dd < bestd) { bestd = dd; bestz = z; }
+                }
+                dz = bestz;
+            }
+            if (dz == s) finalFStay[s] += fp.count;
+            else { fmoves.push_back({s, dz, fp.count}); finalFArrive[dz] += fp.count; }
+        }
+
+        // 6) PRIORITY
+        vector<const p::Building*> pr;
+        for (auto *bp : bOrder) {
+            int z = idx(bp->x, bp->y);
+            if (bp->owner != me && (finalFStay[z] + finalFArrive[z] > 0)) pr.push_back(bp);
+        }
+        sort(pr.begin(), pr.end(), [&](auto *a, auto *b) {
+            int va = buildingValue(*a, v), vb = buildingValue(*b, v);
+            if (va != vb) return va > vb;
+            return homeKeyXY(a->x, a->y) < homeKeyXY(b->x, b->y);
+        });
+        if (!pr.empty()) {
+            vector<pair<int,int>> coords;
+            for (auto *b : pr) coords.push_back({b->x, b->y});
+            out.push_back(p::priority(coords));
+        }
+
+        auto dirBetween = [&](int s, int d) -> string {
+            auto [x, y] = xy(s); auto [a, b] = xy(d);
+            if (a == x && b == y - 1) return "U";
+            if (a == x && b == y + 1) return "D";
+            if (a == x - 1 && b == y) return "L";
+            return "R";
+        };
+
+        map<pair<int,int>, int> wmerge, fmerge;
+        for (auto [s, d, n] : wmoves) if (n > 0) wmerge[{s, d}] += n;
+        for (auto [s, d, n] : fmoves) if (n > 0) fmerge[{s, d}] += n;
+
+        for (auto &kv : wmerge) {
+            int s = kv.first.first, d = kv.first.second, n = kv.second;
+            auto [x, y] = xy(s);
+            out.push_back(p::move(x, y, "W", n, dirBetween(s, d)));
+        }
+        for (auto &kv : fmerge) {
+            int s = kv.first.first, d = kv.first.second, n = kv.second;
+            auto [x, y] = xy(s);
+            out.push_back(p::move(x, y, "F", n, dirBetween(s, d)));
+        }
+
+        return out;
+    }
+};
+
+Planner planner;
+}
+
+vector<string> decide(const p::View& view, const p::Init& init) { return planner.decide(view, init); }
+int main() { return p::run(decide); }
