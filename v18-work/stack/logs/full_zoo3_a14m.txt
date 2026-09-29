@@ -1,0 +1,5 @@
+bot_a14c vs blitz: 18W 0D 2L /20 wr=0.9 margin=22.45 ff=0 inst=0 maxms=393.1 avgmax=201.7 Flost=9.8/3.6
+   lost: [(10000, 'Y', 11, 22, 'score'), (10017, 'Y', 7, 23, 'score')]
+bot_a14c vs hunter: 20W 0D 0L /20 wr=1.0 margin=33.0 ff=0 inst=0 maxms=533.2 avgmax=249.1 Flost=1.1/5.2
+bot_a14c vs rusher: 20W 0D 0L /20 wr=1.0 margin=32.5 ff=0 inst=0 maxms=973.3 avgmax=269.3 Flost=5.1/11.1
+bot_a14c vs turtle: 20W 0D 0L /20 wr=1.0 margin=31.2 ff=0 inst=0 maxms=1024.2 avgmax=387.1 Flost=7.6/14.0

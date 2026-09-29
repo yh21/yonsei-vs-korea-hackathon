@@ -1,0 +1,2 @@
+bot_a19c vs bot_a19d: 19W 0D 13L /32 wr=0.594 margin=2.91 ff=0 inst=5 maxms=265.7 avgmax=170.3 Flost=10.1/10.7
+   lost: [(10000, 'Y', 14, 16, 'score'), (10001, 'Y', 2, 31, 'score'), (10004, 'Y', 0, 29, 'instant'), (10005, 'Y', 9, 20, 'score'), (10006, 'K', 0, 33, 'instant'), (10007, 'Y', 0, 34, 'instant'), (10009, 'K', 11, 25, 'score'), (10010, 'Y', 0, 29, 'instant'), (10010, 'K', 0, 28, 'instant'), (10011, 'K', 13, 20, 'score'), (10013, 'K', 4, 31, 'score'), (10014, 'K', 4, 24, 'score'), (10015, 'Y', 6, 25, 'score')]

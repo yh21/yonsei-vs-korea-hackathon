@@ -1,0 +1,1 @@
+{"./v18-work/snap2/sim/bot": {"games": 30, "win": 24, "draw": 0, "loss": 6, "error": 0, "forfeits": 0, "winrate": 0.8, "win_as_Y": 13, "win_as_K": 11, "avg_margin": 14.1, "lost": [[12002, "Y", 0, 35, "instant"], [12002, "K", 9, 29, "score"], [12006, "Y", 0, 38, "instant"], [12010, "K", 7, 22, "score"], [12012, "K", 12, 22, "score"], [12013, "K", 13, 17, "score"]], "errors": []}}

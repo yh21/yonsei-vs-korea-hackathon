@@ -1,0 +1,11 @@
+== P94=100 P95=8
+./v18-work/zoo2/mimic/patch/bot_tune vs ./v18-work/zoo2/mimic/teleraid/bot: 55W 0D 5L / 60  winrate=0.917  (Y승 28, K승 27)  avg_margin=27.8  forfeits=0 errors=0
+== P64=7
+./v18-work/zoo2/mimic/patch/bot_tune vs ./v18-work/zoo2/mimic/teleraid/bot: 54W 0D 6L / 60  winrate=0.9  (Y승 27, K승 27)  avg_margin=26.25  forfeits=0 errors=0
+== P94=100 P95=8 P64=7
+== P63=2
+./v18-work/zoo2/mimic/patch/bot_tune vs ./v18-work/zoo2/mimic/teleraid/bot: 51W 0D 7L / 60  winrate=0.85  (Y승 27, K승 24)  avg_margin=23.5  forfeits=0 errors=2
+== P66=6 P94=100
+./v18-work/zoo2/mimic/patch/bot_tune vs ./v18-work/zoo2/mimic/teleraid/bot: 54W 0D 6L / 60  winrate=0.9  (Y승 28, K승 26)  avg_margin=26.58  forfeits=2 errors=0
+== P64=8 P63=3 P94=100 P95=8
+./v18-work/zoo2/mimic/patch/bot_tune vs ./v18-work/zoo2/mimic/teleraid/bot: 55W 0D 5L / 60  winrate=0.917  (Y승 26, K승 29)  avg_margin=26.72  forfeits=0 errors=0

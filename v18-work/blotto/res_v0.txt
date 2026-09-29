@@ -1,0 +1,7 @@
+vs bot17    37W 0D 3L /40 wr=0.925 margin=+21.5 forfeit=0 err=0 annih_losses=1
+   lost: [(10007, 'Y', 18, 21, 'scor'), (10023, 'Y', 0, 40, 'inst'), (10035, 'Y', 14, 14, 'occu')]
+vs bot16    34W 0D 6L /40 wr=0.850 margin=+17.8 forfeit=0 err=0 annih_losses=2
+   lost: [(10002, 'Y', 13, 14, 'scor'), (10007, 'Y', 17, 22, 'scor'), (10010, 'Y', 4, 19, 'scor'), (10019, 'Y', 19, 21, 'scor'), (10023, 'Y', 0, 40, 'inst'), (10033, 'Y', 0, 35, 'inst')]
+vs bot15    36W 0D 4L /40 wr=0.900 margin=+21.2 forfeit=0 err=0 annih_losses=0
+   lost: [(10007, 'Y', 15, 24, 'scor'), (10010, 'Y', 12, 18, 'scor'), (10029, 'Y', 13, 21, 'scor'), (10039, 'Y', 17, 18, 'scor')]
+vs bot_opp  40W 0D 0L /40 wr=1.000 margin=+29.8 forfeit=0 err=0 annih_losses=0

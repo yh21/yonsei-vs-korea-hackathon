@@ -1,0 +1,6 @@
+bot_a4c vs bot16: 37W 0D 3L /40 wr=0.925 margin=24.48 ff=0 inst=1 maxms=932.4 avgmax=210.0
+   lost: [(10010, 'Y', 10, 15, 'score'), (10019, 'Y', 19, 19, 'occupation_turns'), (10038, 'Y', 0, 37, 'instant')]
+bot_a4c vs bot15: 37W 0D 3L /40 wr=0.925 margin=23.05 ff=0 inst=1 maxms=2091.6 avgmax=587.9
+   lost: [(10012, 'Y', 1, 27, 'score'), (10015, 'Y', 0, 31, 'instant'), (10037, 'Y', 14, 18, 'score')]
+bot_a4c vs bot_opp: 39W 0D 1L /40 wr=0.975 margin=31.25 ff=0 inst=0 maxms=1988.6 avgmax=476.5
+   lost: [(10007, 'Y', 8, 31, 'score')]

@@ -1,0 +1,2 @@
+base 0.5773
+final 0.5773 {'riskMul': 13, 'regMul': 3, 'huntValue': 660, 'defValue': 960, 'dF0': 7, 'dF1': 6, 'dF2': 5, 'dF3': 4, 'adaptF': 1, 'holdVal': 0, 'dispatch': 0, 'huntNeed': 3, 'hospBonus': 145, 'rally': 0, 'garrisonN': 0}

@@ -1,0 +1,6 @@
+bot_a9 vs bot17: 23W 0D 17L /40 wr=0.575 margin=2.8 ff=0 inst=8 maxms=176.8 avgmax=91.0 Flost=5.5/4.4
+   lost: [(10001, 'Y', 14, 19, 'score'), (10007, 'Y', 17, 20, 'score'), (10008, 'Y', 6, 27, 'score'), (10013, 'Y', 0, 27, 'instant'), (10016, 'Y', 14, 14, 'occupation_turns'), (10017, 'Y', 5, 38, 'score'), (10018, 'Y', 13, 24, 'score'), (10019, 'Y', 0, 32, 'instant'), (10023, 'Y', 0, 40, 'instant'), (10024, 'Y', 0, 32, 'instant'), (10027, 'Y', 5, 26, 'score'), (10030, 'Y', 0, 35, 'instant'), (10031, 'Y', 0, 29, 'instant'), (10032, 'Y', 14, 20, 'score')]
+bot_a9 vs bot16: 34W 0D 6L /40 wr=0.85 margin=11.55 ff=0 inst=3 maxms=290.1 avgmax=130.4 Flost=6.0/5.2
+   lost: [(10018, 'Y', 11, 18, 'score'), (10023, 'Y', 3, 35, 'score'), (10027, 'Y', 0, 32, 'instant'), (10034, 'Y', 8, 26, 'score'), (10036, 'Y', 0, 34, 'instant'), (10038, 'Y', 0, 41, 'instant')]
+bot_a9 vs bot15: 30W 0D 10L /40 wr=0.75 margin=9.95 ff=0 inst=2 maxms=245.5 avgmax=127.5 Flost=5.7/4.0
+   lost: [(10002, 'Y', 10, 14, 'score'), (10008, 'Y', 16, 17, 'score'), (10012, 'Y', 13, 18, 'score'), (10013, 'Y', 0, 26, 'instant'), (10015, 'Y', 15, 19, 'score'), (10017, 'Y', 0, 39, 'instant'), (10021, 'Y', 7, 25, 'score'), (10029, 'Y', 12, 23, 'score'), (10037, 'Y', 3, 24, 'score'), (10039, 'Y', 10, 25, 'score')]

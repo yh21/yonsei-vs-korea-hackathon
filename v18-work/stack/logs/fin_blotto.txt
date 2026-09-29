@@ -1,0 +1,2 @@
+bot_a28c vs cand_blotto: 26W 0D 14L /40 wr=0.65 margin=4.38 ff=0 inst=8 maxms=463.7 avgmax=213.8 Flost=9.0/16.6
+   lost: [(10001, 'K', 13, 20, 'score'), (10003, 'Y', 6, 21, 'score'), (10003, 'K', 0, 36, 'instant'), (10005, 'Y', 0, 32, 'instant'), (10005, 'K', 4, 29, 'score'), (10007, 'Y', 0, 36, 'instant'), (10007, 'K', 14, 19, 'score'), (10008, 'K', 15, 16, 'score'), (10010, 'K', 0, 25, 'instant'), (10012, 'Y', 0, 31, 'instant'), (10014, 'Y', 10, 27, 'score'), (10017, 'K', 0, 37, 'instant'), (10018, 'K', 0, 34, 'instant'), (10019, 'Y', 0, 38, 'instant')]

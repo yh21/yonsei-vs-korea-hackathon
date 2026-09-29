@@ -1,0 +1,5 @@
+bot_a20c vs cand_blotto: 10W 0D 10L /20 wr=0.5 margin=-6.6 ff=0 inst=8 maxms=930.1 avgmax=346.3 Flost=7.7/14.9
+   lost: [(10000, 'Y', 2, 31, 'score'), (10001, 'K', 0, 35, 'instant'), (10003, 'Y', 0, 36, 'instant'), (10003, 'K', 0, 33, 'instant'), (10004, 'Y', 0, 29, 'instant'), (10004, 'K', 0, 31, 'instant'), (10005, 'Y', 0, 32, 'instant'), (10005, 'K', 0, 32, 'instant'), (10007, 'Y', 0, 34, 'instant'), (10007, 'K', 14, 25, 'score')]
+bot_a20c vs cand_sim: 20W 0D 0L /20 wr=1.0 margin=26.7 ff=0 inst=0 maxms=1110.3 avgmax=300.2 Flost=4.2/17.1
+bot_a20c vs cand_tempo: 19W 0D 1L /20 wr=0.95 margin=27.75 ff=0 inst=0 maxms=957.2 avgmax=369.4 Flost=1.2/16.1
+   lost: [(10009, 'K', 15, 18, 'score')]

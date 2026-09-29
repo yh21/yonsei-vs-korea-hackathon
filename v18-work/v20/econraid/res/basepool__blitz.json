@@ -1,0 +1,1 @@
+{"./v18-work/zoo/blitz/bot": {"games": 30, "win": 26, "draw": 0, "loss": 4, "error": 0, "forfeits": 0, "winrate": 0.867, "win_as_Y": 13, "win_as_K": 13, "avg_margin": 20.4, "lost": [[12001, "Y", 13, 17, "score"], [12008, "Y", 3, 23, "score"], [12008, "K", 11, 18, "score"], [12011, "K", 11, 20, "score"]], "errors": []}}

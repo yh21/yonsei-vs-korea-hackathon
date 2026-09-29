@@ -1,0 +1,1 @@
+{"./bot19": {"games": 40, "win": 35, "draw": 0, "loss": 5, "error": 0, "forfeits": 0, "winrate": 0.875, "win_as_Y": 17, "win_as_K": 18, "avg_margin": 17.6, "lost": [[12030, "Y", 15, 17, "score"], [12033, "Y", 0, 31, "instant"], [12037, "K", 18, 18, "occupation_turns"], [12040, "Y", 0, 35, "instant"], [12043, "K", 7, 28, "score"]], "errors": []}}

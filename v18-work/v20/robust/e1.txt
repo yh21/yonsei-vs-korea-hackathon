@@ -1,0 +1,8 @@
+./v18-work/v20/robust/tune2 vs ./bot18: 40W 0D 0L / 40  winrate=1.0  (Y승 20, K승 20)  avg_margin=30.62  forfeits=0 errors=0
+./v18-work/v20/robust/tune2 vs ./v18-work/snap2/tempo/bot: 39W 0D 1L / 40  winrate=0.975  (Y승 20, K승 19)  avg_margin=28.35  forfeits=0 errors=0
+   lost(seed,side,my,opp,reason): [(12007, 'K', 2, 36, 'score')]
+./v18-work/v20/robust/tune2 vs ./v18-work/zoo/blitz/bot: 38W 0D 2L / 40  winrate=0.95  (Y승 19, K승 19)  avg_margin=26.32  forfeits=0 errors=0
+   lost(seed,side,my,opp,reason): [(12005, 'Y', 13, 14, 'score'), (12005, 'K', 12, 29, 'score')]
+./v18-work/v20/robust/tune2 vs ./v18-work/snap2/sim/bot: 39W 0D 1L / 40  winrate=0.975  (Y승 20, K승 19)  avg_margin=28.57  forfeits=0 errors=0
+   lost(seed,side,my,opp,reason): [(12019, 'K', 5, 19, 'score')]
+DONE

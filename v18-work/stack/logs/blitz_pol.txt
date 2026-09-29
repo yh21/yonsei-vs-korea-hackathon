@@ -1,0 +1,2 @@
+bot_a7c vs blitz: 17W 0D 3L /20 wr=0.85 margin=21.75 ff=0 inst=0 maxms=659.7 avgmax=131.9 Flost=7.5/3.8
+   lost: [(10007, 'Y', 18, 19, 'score'), (10008, 'Y', 13, 18, 'score'), (10013, 'Y', 4, 31, 'score')]

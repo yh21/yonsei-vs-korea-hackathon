@@ -1,0 +1,11 @@
+mine vs v15: 29W 0D 1L /30 winrate=0.967 margin=29.73 maxms=14 avgms=6.0 ff=0 err=0 instant_losses=[(10012, 'Y', 0, 29)]
+mine vs v17: 20W 0D 0L /20 winrate=1.000 margin=27.70 maxms=14 avgms=6.3 ff=0 err=0 instant_losses=[]
+mine vs pp:1: 7W 0D 3L /10 winrate=0.700 margin=13.90 maxms=14 avgms=6.4 ff=0 err=0 instant_losses=[]
+mine vs pp:2: 7W 0D 3L /10 winrate=0.700 margin=12.00 maxms=15 avgms=6.5 ff=0 err=0 instant_losses=[(10001, 'Y', 0, 32)]
+mine vs pp:3: 9W 0D 1L /10 winrate=0.900 margin=21.60 maxms=14 avgms=7.0 ff=0 err=0 instant_losses=[]
+mine vs pp:4: 8W 0D 2L /10 winrate=0.800 margin=16.40 maxms=14 avgms=6.5 ff=0 err=0 instant_losses=[]
+mine vs pp:5: 10W 0D 0L /10 winrate=1.000 margin=24.60 maxms=13 avgms=6.6 ff=0 err=0 instant_losses=[]
+mine vs pp:6: 8W 0D 2L /10 winrate=0.800 margin=16.10 maxms=13 avgms=6.9 ff=0 err=0 instant_losses=[]
+mine vs pp:7: 9W 0D 1L /10 winrate=0.900 margin=21.90 maxms=14 avgms=6.6 ff=0 err=0 instant_losses=[]
+mine vs pp:8: 9W 0D 1L /10 winrate=0.900 margin=20.50 maxms=15 avgms=6.7 ff=0 err=0 instant_losses=[]
+TOTAL 116W 0D 14L winrate=0.892

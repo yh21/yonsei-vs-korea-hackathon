@@ -1,0 +1,1 @@
+{"./bot8": {"games": 60, "win": 58, "draw": 0, "loss": 2, "error": 0, "forfeits": 0, "winrate": 0.967, "win_as_Y": 29, "win_as_K": 29, "avg_margin": 29.92, "lost": [[12003, "Y", 0, 27, "instant"], [12003, "K", 0, 27, "instant"]], "errors": []}}

@@ -1,0 +1,20 @@
+./v18-work/v20/robust/cand3 vs ./bot19: 49W 0D 11L / 60  winrate=0.817  (Y승 23, K승 26)  avg_margin=17.08  forfeits=0 errors=0
+   lost(seed,side,my,opp,reason): [(12002, 'K', 13, 22, 'score'), (12004, 'Y', 17, 20, 'score'), (12004, 'K', 17, 20, 'score'), (12005, 'Y', 19, 22, 'score'), (12015, 'Y', 16, 17, 'score'), (12017, 'Y', 10, 17, 'score'), (12021, 'Y', 0, 39, 'instant'), (12021, 'K', 7, 34, 'score'), (12023, 'Y', 0, 31, 'instant'), (12023, 'K', 0, 34, 'instant'), (12026, 'Y', 12, 19, 'score')]
+./v18-work/v20/robust/cand3 vs ./v18-work/snap2/tempo/bot: 56W 1D 3L / 60  winrate=0.942  (Y승 29, K승 27)  avg_margin=28.0  forfeits=2 errors=0
+   lost(seed,side,my,opp,reason): [(12002, 'Y', 23, 14, 'forfeit'), (12007, 'K', 0, 41, 'instant'), (12023, 'K', 0, 31, 'instant')]
+./v18-work/v20/robust/cand3 vs ./bot18: 59W 0D 1L / 60  winrate=0.983  (Y승 29, K승 30)  avg_margin=30.28  forfeits=0 errors=0
+   lost(seed,side,my,opp,reason): [(12023, 'Y', 0, 33, 'instant')]
+./v18-work/v20/robust/cand3 vs ./v18-work/snap2/sim/bot: 58W 0D 2L / 60  winrate=0.967  (Y승 29, K승 29)  avg_margin=28.53  forfeits=0 errors=0
+   lost(seed,side,my,opp,reason): [(12019, 'Y', 0, 25, 'instant'), (12019, 'K', 0, 26, 'instant')]
+./v18-work/v20/robust/cand3 vs ./v18-work/snap2/blotto/bot: 59W 0D 1L / 60  winrate=0.983  (Y승 30, K승 29)  avg_margin=30.2  forfeits=1 errors=0
+   lost(seed,side,my,opp,reason): [(12019, 'K', 0, 26, 'instant')]
+./v18-work/v20/robust/cand3 vs ./v18-work/zoo/blitz/bot: 58W 0D 2L / 60  winrate=0.967  (Y승 29, K승 29)  avg_margin=26.82  forfeits=0 errors=0
+   lost(seed,side,my,opp,reason): [(12005, 'Y', 13, 14, 'score'), (12005, 'K', 12, 29, 'score')]
+./v18-work/v20/robust/cand3 vs ./v18-work/zoo/rusher/bot: 60W 0D 0L / 60  winrate=1.0  (Y승 30, K승 30)  avg_margin=31.67  forfeits=0 errors=0
+./v18-work/v20/robust/cand3 vs ./v18-work/zoo/hunter/bot: 60W 0D 0L / 60  winrate=1.0  (Y승 30, K승 30)  avg_margin=32.98  forfeits=0 errors=0
+./v18-work/v20/robust/cand3 vs ./v18-work/zoo/turtle/bot: 60W 0D 0L / 60  winrate=1.0  (Y승 30, K승 30)  avg_margin=31.62  forfeits=0 errors=0
+./v18-work/v20/robust/cand3 vs ./bot17: 60W 0D 0L / 60  winrate=1.0  (Y승 30, K승 30)  avg_margin=32.82  forfeits=0 errors=0
+./v18-work/v20/robust/cand3 vs ./bot15: 60W 0D 0L / 60  winrate=1.0  (Y승 30, K승 30)  avg_margin=31.75  forfeits=0 errors=0
+./v18-work/v20/robust/cand3 vs ./bot_opp: 59W 0D 1L / 60  winrate=0.983  (Y승 30, K승 29)  avg_margin=32.83  forfeits=1 errors=0
+   lost(seed,side,my,opp,reason): [(12028, 'K', 17, 16, 'forfeit')]
+DONE

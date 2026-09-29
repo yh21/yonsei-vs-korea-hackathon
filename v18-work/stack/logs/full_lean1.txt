@@ -1,0 +1,4 @@
+bot_a14c vs bot17: 38W 0D 2L /40 wr=0.95 margin=28.43 ff=0 inst=0 maxms=430.2 avgmax=282.4 Flost=0.7/9.7
+   lost: [(10028, 'Y', 12, 15, 'score'), (10039, 'Y', 14, 18, 'score')]
+bot_a14c vs bot16: 39W 0D 1L /40 wr=0.975 margin=29.73 ff=0 inst=0 maxms=474.5 avgmax=205.8 Flost=1.2/12.4
+   lost: [(10023, 'Y', 4, 27, 'score')]

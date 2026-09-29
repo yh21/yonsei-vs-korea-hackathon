@@ -1,0 +1,2 @@
+bot_a4c vs bot17: 39W 0D 1L /40 wr=0.975 margin=30.7 ff=0 inst=0 maxms=807.5 avgmax=354.1
+   lost: [(10009, 'Y', 14, 20, 'score')]

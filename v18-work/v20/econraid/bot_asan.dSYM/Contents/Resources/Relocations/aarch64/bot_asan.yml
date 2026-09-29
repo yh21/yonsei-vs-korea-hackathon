@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     'v18-work/v20/econraid/bot_asan'
+relocations:     []
+...

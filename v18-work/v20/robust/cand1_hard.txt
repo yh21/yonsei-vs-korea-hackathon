@@ -1,0 +1,13 @@
+./v18-work/v20/robust/cand1 vs ./v18-work/snap2/tempo/bot: 50W 0D 10L / 60  winrate=0.833  (Y승 24, K승 26)  avg_margin=17.08  forfeits=0 errors=0
+   lost(seed,side,my,opp,reason): [(12007, 'Y', 4, 39, 'score'), (12019, 'Y', 0, 24, 'instant'), (12019, 'K', 0, 25, 'instant'), (12020, 'Y', 0, 38, 'instant'), (12020, 'K', 0, 36, 'instant'), (12023, 'Y', 0, 33, 'instant'), (12023, 'K', 0, 32, 'instant'), (12025, 'Y', 3, 20, 'score'), (12029, 'Y', 0, 43, 'instant'), (12029, 'K', 0, 41, 'instant')]
+./v18-work/v20/robust/cand1 vs ./bot18: 52W 0D 8L / 60  winrate=0.867  (Y승 25, K승 27)  avg_margin=22.82  forfeits=0 errors=0
+   lost(seed,side,my,opp,reason): [(12001, 'Y', 17, 20, 'score'), (12010, 'Y', 15, 22, 'score'), (12010, 'K', 0, 36, 'instant'), (12014, 'Y', 10, 24, 'score'), (12019, 'Y', 0, 24, 'instant'), (12019, 'K', 0, 25, 'instant'), (12023, 'Y', 0, 31, 'instant'), (12023, 'K', 0, 31, 'instant')]
+./v18-work/v20/robust/cand1 vs ./v18-work/snap2/blotto/bot: 56W 0D 4L / 60  winrate=0.933  (Y승 27, K승 29)  avg_margin=18.8  forfeits=5 errors=0
+   lost(seed,side,my,opp,reason): [(12002, 'Y', 0, 37, 'instant'), (12002, 'K', 9, 28, 'score'), (12010, 'Y', 0, 37, 'instant'), (12013, 'Y', 0, 29, 'instant')]
+./v18-work/v20/robust/cand1 vs ./v18-work/snap2/sim/bot: 53W 0D 7L / 60  winrate=0.883  (Y승 27, K승 26)  avg_margin=19.77  forfeits=0 errors=0
+   lost(seed,side,my,opp,reason): [(12002, 'Y', 0, 33, 'instant'), (12002, 'K', 0, 39, 'instant'), (12006, 'Y', 0, 33, 'instant'), (12019, 'Y', 0, 26, 'instant'), (12019, 'K', 0, 25, 'instant'), (12025, 'K', 2, 28, 'score'), (12029, 'K', 0, 43, 'instant')]
+./v18-work/v20/robust/cand1 vs ./v18-work/zoo/blitz/bot: 51W 0D 9L / 60  winrate=0.85  (Y승 27, K승 24)  avg_margin=19.65  forfeits=0 errors=0
+   lost(seed,side,my,opp,reason): [(12005, 'Y', 19, 22, 'score'), (12011, 'Y', 14, 18, 'score'), (12015, 'K', 13, 16, 'score'), (12016, 'Y', 10, 26, 'score'), (12018, 'K', 14, 17, 'score'), (12022, 'K', 15, 18, 'score'), (12026, 'K', 12, 14, 'score'), (12027, 'K', 10, 24, 'score'), (12028, 'K', 3, 34, 'score')]
+./v18-work/v20/robust/cand1 vs ./v18-work/zoo/rusher/bot: 59W 0D 1L / 60  winrate=0.983  (Y승 30, K승 29)  avg_margin=30.4  forfeits=0 errors=0
+   lost(seed,side,my,opp,reason): [(12025, 'K', 8, 22, 'score')]
+v18-work/v20/robust/hard.sh: line 7: 18-work/arena.py: No such file or directory

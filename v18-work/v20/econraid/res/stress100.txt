@@ -1,0 +1,11 @@
+./v18-work/v20/econraid/bot_final vs ./bot17: 6/6 wins
+./v18-work/v20/econraid/bot_final vs ./bot19: 4/6 wins
+./v18-work/v20/econraid/bot_final vs ./bot18: 5/6 wins
+./v18-work/v20/econraid/bot_final vs ./v18-work/zoo/blitz/bot: 5/6 wins
+./v18-work/v20/econraid/bot_final vs ./v18-work/snap2/tempo/bot: 6/6 wins
+./v18-work/v20/econraid/bot_final vs ./v18-work/snap2/blotto/bot: 6/6 wins
+timeout=100ms games=36 forfeits/errors=4 maxrss_children=24MB(macOS bytes)
+BAD {'opp': './v18-work/snap2/blotto/bot', 'seed': 50001, 'side': 'Y', 'winner': 'Y', 'reason': 'forfeit', 'forfeit': {'team': 'K', 'cause': 'timeout'}}
+BAD {'opp': './v18-work/snap2/blotto/bot', 'seed': 50001, 'side': 'K', 'winner': 'K', 'reason': 'forfeit', 'forfeit': {'team': 'Y', 'cause': 'timeout'}}
+BAD {'opp': './v18-work/snap2/blotto/bot', 'seed': 50002, 'side': 'Y', 'winner': 'Y', 'reason': 'forfeit', 'forfeit': {'team': 'K', 'cause': 'timeout'}}
+BAD {'opp': './v18-work/snap2/blotto/bot', 'seed': 50002, 'side': 'K', 'winner': 'K', 'reason': 'forfeit', 'forfeit': {'team': 'Y', 'cause': 'timeout'}}

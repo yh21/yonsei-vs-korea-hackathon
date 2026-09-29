@@ -1,0 +1,6 @@
+bot_a11c vs bot17: 40W 0D 0L /40 wr=1.0 margin=32.23 ff=0 inst=0 maxms=1429.7 avgmax=397.7 Flost=0.7/14.6
+bot_a11c vs bot16: 39W 0D 1L /40 wr=0.975 margin=31.43 ff=0 inst=0 maxms=1907.2 avgmax=520.2 Flost=0.9/15.4
+   lost: [(10034, 'Y', 5, 29, 'score')]
+bot_a11c vs bot15: 39W 0D 1L /40 wr=0.975 margin=29.07 ff=0 inst=1 maxms=987.4 avgmax=421.9 Flost=0.9/13.9
+   lost: [(10015, 'Y', 0, 33, 'instant')]
+bot_a11c vs bot_opp: 40W 0D 0L /40 wr=1.0 margin=32.8 ff=0 inst=0 maxms=1525.1 avgmax=251.8 Flost=5.1/12.6

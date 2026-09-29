@@ -1,0 +1,510 @@
+Analysis of sampling explore_g (pid 46131) every 1 millisecond
+Process:         explore_g [46131]
+Path:            /Users/USER/Desktop/*/explore_g
+Load Address:    0x104bf4000
+Identifier:      explore_g
+Version:         0
+Code Type:       ARM64
+Platform:        macOS
+Parent Process:  launchd [1]
+Target Type:     live task
+
+Date/Time:       2026-09-29 15:56:42.232 +0900
+Launch Time:     2026-09-29 15:56:39.985 +0900
+OS Version:      macOS 26.4.1 (25E253)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         1665K
+Physical footprint (peak):  1681K
+Idle exit:                  untracked
+----
+
+Call graph:
+    3827 Thread_3666532   DispatchQueue_1: com.apple.main-thread  (serial)
+      3827 start  (in dyld) + 6992  [0x18ba8bda4]
+        3827 main  (in explore_g) + 1836  [0x104bfd908]  explore.cpp:59
+          1903 playGame(sim::Map const&, pol::Near const&, pol::Params const&, pol::Params const&, int*, bool*)  (in explore_g) + 356  [0x104bf4bac]  explore.cpp:34
+          + 1369 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10304  [0x104bf7c0c]  pol17.hpp:393
+          + ! 289 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 496,312,...  [0x104bfe628,0x104bfe570,...]  pol17.hpp:0
+          + ! 252 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 620,560,...  [0x104bfe6a4,0x104bfe668,...]  pol17.hpp:347
+          + ! 247 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 520,448,...  [0x104bfe640,0x104bfe5f8,...]  pol17.hpp:349
+          + ! 171 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 372,376  [0x104bfe5ac,0x104bfe5b0]  pol17.hpp:341
+          + ! 120 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 360,352,...  [0x104bfe5a0,0x104bfe598,...]  pol17.hpp:339
+          + ! 113 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 508,436,...  [0x104bfe634,0x104bfe5ec,...]  pol17.hpp:348
+          + ! 100 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 404  [0x104bfe5cc]  pol17.hpp:345
+          + ! 32 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 592,460,...  [0x104bfe688,0x104bfe604,...]  pol17.hpp:350
+          + ! 25 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 392  [0x104bfe5c0]  pol17.hpp:344
+          + ! 8 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 104  [0x104bfe4a0]  pol17.hpp:329
+          + ! : 8 _platform_memset_pattern16  (in libsystem_platform.dylib) + 208,260,...  [0x18be4f250,0x18be4f284,...]
+          + ! 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 272  [0x104bfe548]  pol17.hpp:336
+          + ! : 3 _tlv_get_addr  (in libdyld.dylib) + 0,4  [0x18ba54388,0x18ba5438c]
+          + ! 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 380  [0x104bfe5b4]  pol17.hpp:343
+          + ! 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 76  [0x104bfe484]  pol17.hpp:328
+          + ! : 2 _tlv_get_addr  (in libdyld.dylib) + 4  [0x18ba5438c]
+          + ! 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 32  [0x104bfe458]  pol17.hpp:355
+          + ! 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 120  [0x104bfe4b0]  pol17.hpp:0
+          + ! : 1 _tlv_get_addr  (in libdyld.dylib) + 0  [0x18ba54388]
+          + ! 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 248  [0x104bfe530]  pol17.hpp:336
+          + !   1 _tlv_get_addr  (in libdyld.dylib) + 20  [0x18ba5439c]
+          + 88 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 8640,15408,...  [0x104bf758c,0x104bf8ffc,...]  pol17.hpp:0
+          + 48 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19780  [0x104bfa110]  pol17.hpp:600
+          + ! 13 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 340,496,...  [0x104bfe58c,0x104bfe628,...]  pol17.hpp:0
+          + ! 12 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 560,428,...  [0x104bfe668,0x104bfe5e4,...]  pol17.hpp:347
+          + ! 7 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 404  [0x104bfe5cc]  pol17.hpp:345
+          + ! 5 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 372  [0x104bfe5ac]  pol17.hpp:341
+          + ! 5 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 448,640,...  [0x104bfe5f8,0x104bfe6b8,...]  pol17.hpp:349
+          + ! 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 436,508  [0x104bfe5ec,0x104bfe634]  pol17.hpp:348
+          + ! 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 360  [0x104bfe5a0]  pol17.hpp:339
+          + ! 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 652  [0x104bfe6c4]  pol17.hpp:350
+          + 29 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10632  [0x104bf7d54]  pol17.hpp:397
+          + ! 16 <deduplicated_symbol>  (in explore_g) + 528  [0x104bffc4c]
+          + ! : 7 <deduplicated_symbol>  (in explore_g) + 528  [0x104bffc4c]
+          + ! : | 5 <deduplicated_symbol>  (in explore_g) + 1108,1352,...  [0x104bffe90,0x104bfff84,...]
+          + ! : | 2 <deduplicated_symbol>  (in explore_g) + 528  [0x104bffc4c]
+          + ! : |   1 <deduplicated_symbol>  (in explore_g) + 528  [0x104bffc4c]
+          + ! : |   ! 1 <deduplicated_symbol>  (in explore_g) + 1332  [0x104bfff70]
+          + ! : |   1 <deduplicated_symbol>  (in explore_g) + 1288  [0x104bfff44]
+          + ! : 5 <deduplicated_symbol>  (in explore_g) + 964,1012,...  [0x104bffe00,0x104bffe30,...]
+          + ! : 4 <deduplicated_symbol>  (in explore_g) + 444  [0x104bffbf8]
+          + ! :   4 <deduplicated_symbol>  (in explore_g) + 248,300,...  [0x104c00924,0x104c00958,...]
+          + ! 7 <deduplicated_symbol>  (in explore_g) + 1428,1448,...  [0x104bfffd0,0x104bfffe4,...]
+          + ! 6 <deduplicated_symbol>  (in explore_g) + 444  [0x104bffbf8]
+          + !   6 <deduplicated_symbol>  (in explore_g) + 424,368,...  [0x104c009d4,0x104c0099c,...]
+          + 26 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9172,9160,...  [0x104bf77a0,0x104bf7794,...]  pol17.hpp:316
+          + 18 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 21664  [0x104bfa86c]  pol17.hpp:647
+          + ! 7 <deduplicated_symbol>  (in explore_g) + 3468,2112,...  [0x104c05a60,0x104c05514,...]
+          + ! 6 <deduplicated_symbol>  (in explore_g) + 2216  [0x104c0557c]
+          + ! : 5 <deduplicated_symbol>  (in explore_g) + 124,2892,...  [0x104c04d50,0x104c05820,...]
+          + ! : 1 <deduplicated_symbol>  (in explore_g) + 2216  [0x104c0557c]
+          + ! :   1 <deduplicated_symbol>  (in explore_g) + 2988  [0x104c05880]
+          + ! 5 <deduplicated_symbol>  (in explore_g) + 2128  [0x104c05524]
+          + !   5 <deduplicated_symbol>  (in explore_g) + 228,200,...  [0x104c05eb0,0x104c05e94,...]
+          + 17 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2976,3044,...  [0x104bf5f6c,0x104bf5fb0,...]  pol17.hpp:153
+          + 17 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16988  [0x104bf9628]  pol17.hpp:540
+          + ! 5 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 1044,1072,...  [0x104c02540,0x104c0255c,...]  sort.h:759
+          + ! 5 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 396  [0x104c022b8]  sort.h:804
+          + ! : 3 std::__partition_with_equals_on_right[abi:nqe210106]<std::_ClassicAlgPolicy, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&)  (in explore_g) + 324,364,...  [0x104c02eec,0x104c02f14,...]  sort.h:634
+          + ! : 1 std::__partition_with_equals_on_right[abi:nqe210106]<std::_ClassicAlgPolicy, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&)  (in explore_g) + 256  [0x104c02ea8]  sort.h:608
+          + ! : 1 std::__partition_with_equals_on_right[abi:nqe210106]<std::_ClassicAlgPolicy, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&)  (in explore_g) + 384  [0x104c02f28]  sort.h:640
+          + ! 3 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 1384,1408  [0x104c02694,0x104c026ac]  sort.h:761
+          + ! 3 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 480  [0x104c0230c]  sort.h:824
+          + ! : 3 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 1060,1076,...  [0x104c02550,0x104c02560,...]  sort.h:759
+          + ! 1 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 952  [0x104c024e4]  sort_heap.h:0
+          + 16 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 15448,15436,...  [0x104bf9024,0x104bf9018,...]  pol17.hpp:512
+          + 16 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 17820,17928,...  [0x104bf9968,0x104bf99d4,...]  pol17.hpp:551
+          + 15 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 15180,15344,...  [0x104bf8f18,0x104bf8fbc,...]  pol17.hpp:509
+          + 13 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 17528,18104,...  [0x104bf9844,0x104bf9a84,...]  pol17.hpp:550
+          + 13 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 17980,18052,...  [0x104bf9a08,0x104bf9a50,...]  pol17.hpp:552
+          + 11 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16480,15996,...  [0x104bf942c,0x104bf9248,...]  pol17.hpp:526
+          + 10 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 17416,17276,...  [0x104bf97d4,0x104bf9748,...]  pol17.hpp:549
+          + 8 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 8664,8656  [0x104bf75a4,0x104bf759c]  pol17.hpp:270
+          + 8 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16020,16360,...  [0x104bf9260,0x104bf93b4,...]  pol17.hpp:523
+          + 7 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 3732,3320,...  [0x104bf6260,0x104bf60c4,...]  pol17.hpp:160
+          + 6 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 8672  [0x104bf75ac]  pol17.hpp:271
+          + 6 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16828,16840  [0x104bf9588,0x104bf9594]  pol17.hpp:537
+          + 6 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 17600,17504,...  [0x104bf988c,0x104bf982c,...]  pol17.hpp:553
+          + 5 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2824,2836  [0x104bf5ed4,0x104bf5ee0]  pol17.hpp:150
+          + 5 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9052  [0x104bf7728]  pol17.hpp:311
+          + 5 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 11736  [0x104bf81a4]  pol17.hpp:405
+          + 5 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 21876  [0x104bfa940]  pol17.hpp:652
+          + 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10172  [0x104bf7b88]  pol17.hpp:388
+          + 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16908,16896  [0x104bf95d8,0x104bf95cc]  pol17.hpp:539
+          + 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 18872,18728,...  [0x104bf9d84,0x104bf9cf4,...]  pol17.hpp:573
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 6512,7468,...  [0x104bf6d3c,0x104bf70f8,...]  pol17.hpp:258
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 8700  [0x104bf75c8]  pol17.hpp:272
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9088  [0x104bf774c]  pol17.hpp:313
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9128,9116  [0x104bf7774,0x104bf7768]  pol17.hpp:314
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10304  [0x104bf7c0c]  pol17.hpp:394
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 13000,13028  [0x104bf8694,0x104bf86b0]  pol17.hpp:468
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16520,16524  [0x104bf9454,0x104bf9458]  pol17.hpp:522
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19480  [0x104bf9fe4]  pol17.hpp:589
+          + ! 3 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18bdfe7e8]
+          + !   1 <deduplicated_symbol>  (in libsystem_malloc.dylib) + 112  [0x18bc64144]
+          + !   1 _xzm_xzone_malloc_tiny  (in libsystem_malloc.dylib) + 284  [0x18bc69ff0]
+          + !   1 malloc_type_malloc  (in libsystem_malloc.dylib) + 0  [0x18bc57fe4]
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19976  [0x104bfa1d4]  pol17.hpp:607
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 20632  [0x104bfa464]  pol17.hpp:625
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22000  [0x104bfa9bc]  pol17.hpp:655
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 856  [0x104bf5724]  pol17.hpp:101
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2124,2272  [0x104bf5c18,0x104bf5cac]  pol17.hpp:137
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2420  [0x104bf5d40]  pol17.hpp:141
+          + ! 2 _platform_memset  (in libsystem_platform.dylib) + 140  [0x18be5117c]
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2844  [0x104bf5ee8]  pol17.hpp:151
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2812  [0x104bf5ec8]  pol17.hpp:154
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 3888  [0x104bf62fc]  pol17.hpp:163
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 6208  [0x104bf6c0c]  pol17.hpp:257
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 8984  [0x104bf76e4]  pol17.hpp:310
+          + ! 2 _platform_memset  (in libsystem_platform.dylib) + 140,152  [0x18be5117c,0x18be51188]
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9072,9076  [0x104bf773c,0x104bf7740]  pol17.hpp:312
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9356,9432  [0x104bf7858,0x104bf78a4]  pol17.hpp:319
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 11724  [0x104bf8198]  pol17.hpp:404
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 11784  [0x104bf81d4]  pol17.hpp:406
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 15072  [0x104bf8eac]  pol17.hpp:502
+          + ! 2 _platform_memset  (in libsystem_platform.dylib) + 140  [0x18be5117c]
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 15528  [0x104bf9074]  pol17.hpp:515
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16604,16700  [0x104bf94a8,0x104bf9508]  pol17.hpp:528
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 18864  [0x104bf9d7c]  pol17.hpp:572
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19132  [0x104bf9e88]  pol17.hpp:576
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19936  [0x104bfa1ac]  pol17.hpp:605
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22564,22612  [0x104bfabf0,0x104bfac20]  pol17.hpp:665
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22684  [0x104bfac68]  pol17.hpp:670
+          + ! 1 _xzm_free  (in libsystem_malloc.dylib) + 1048  [0x18bc65484]
+          + ! : 1 mach_absolute_time  (in libsystem_kernel.dylib) + 28  [0x18be040bc]
+          + ! 1 _xzm_free  (in libsystem_malloc.dylib) + 172  [0x18bc65118]
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22708  [0x104bfac80]  pol17.hpp:670
+          + ! 1 _free  (in libsystem_malloc.dylib) + 96  [0x18bc74cac]
+          + ! 1 _xzm_free  (in libsystem_malloc.dylib) + 352  [0x18bc651cc]
+          + !   1 _platform_memset  (in libsystem_platform.dylib) + 140  [0x18be5117c]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10128  [0x104bf7b5c]  __split_buffer:0
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 1100  [0x104bf5818]  pol17.hpp:103
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 1116  [0x104bf5828]  pol17.hpp:106
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 1152  [0x104bf584c]  pol17.hpp:107
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 1288  [0x104bf58d4]  pol17.hpp:111
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2524  [0x104bf5da8]  pol17.hpp:145
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 3148  [0x104bf6018]  pol17.hpp:158
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 4668  [0x104bf6608]  pol17.hpp:173
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 4740  [0x104bf6650]  pol17.hpp:176
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9544  [0x104bf7914]  pol17.hpp:368
+          + ! 1 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18bdfe7e8]
+          + !   1 xzm_malloc_zone_malloc_type_malloc  (in libsystem_malloc.dylib) + 0  [0x18bc7011c]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9572  [0x104bf7930]  pol17.hpp:370
+          + ! 1 _platform_memmove  (in libsystem_platform.dylib) + 168  [0x18be51468]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9668  [0x104bf7990]  pol17.hpp:373
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9996  [0x104bf7ad8]  pol17.hpp:382
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10096  [0x104bf7b3c]  pol17.hpp:385
+          + ! 1 operator new(unsigned long)  (in libc++abi.dylib) + 0  [0x18bdfe7b4]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10140  [0x104bf7b68]  pol17.hpp:386
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10672  [0x104bf7d7c]  pol17.hpp:402
+          + ! 1 __bzero  (in libsystem_platform.dylib) + 0  [0x18be51090]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 11796  [0x104bf81e0]  pol17.hpp:406
+          + ! 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 24  [0x104bfe450]  pol17.hpp:326
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10776  [0x104bf7de4]  pol17.hpp:415
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 12352  [0x104bf840c]  pol17.hpp:436
+          + ! 1 __bzero  (in libsystem_platform.dylib) + 0  [0x18be51090]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 12400  [0x104bf843c]  pol17.hpp:436
+          + ! 1 _platform_memmove  (in libsystem_platform.dylib) + 180  [0x18be51474]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 12428  [0x104bf8458]  pol17.hpp:440
+          + ! 1 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18bdfe7e8]
+          + !   1 _xzm_xzone_malloc_tiny  (in libsystem_malloc.dylib) + 96  [0x18bc69f34]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 12484  [0x104bf8490]  pol17.hpp:442
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 13068  [0x104bf86d8]  pol17.hpp:455
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 13728  [0x104bf896c]  pol17.hpp:469
+          + ! 1 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda3'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda3'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 1620  [0x104c01730]  sort.h:759
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 14532  [0x104bf8c90]  pol17.hpp:490
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 15112  [0x104bf8ed4]  pol17.hpp:502
+          + ! 1 _platform_memmove  (in libsystem_platform.dylib) + 180  [0x18be51474]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 15136  [0x104bf8eec]  pol17.hpp:508
+          + ! 1 _platform_memset_pattern16  (in libsystem_platform.dylib) + 208  [0x18be4f250]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 15616  [0x104bf90cc]  pol17.hpp:516
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16316  [0x104bf9388]  pol17.hpp:524
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16628  [0x104bf94c0]  pol17.hpp:530
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16664  [0x104bf94e4]  pol17.hpp:531
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16728  [0x104bf9524]  pol17.hpp:535
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 18772  [0x104bf9d20]  pol17.hpp:574
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 18816  [0x104bf9d4c]  pol17.hpp:575
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19496  [0x104bf9ff4]  pol17.hpp:591
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19572  [0x104bfa040]  pol17.hpp:592
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19640  [0x104bfa084]  pol17.hpp:598
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19768  [0x104bfa104]  pol17.hpp:600
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19892  [0x104bfa180]  pol17.hpp:602
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19948  [0x104bfa1b8]  pol17.hpp:606
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 20056  [0x104bfa224]  pol17.hpp:611
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 20068  [0x104bfa230]  pol17.hpp:612
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 21748  [0x104bfa8c0]  pol17.hpp:649
+          + ! 1 _platform_memset  (in libsystem_platform.dylib) + 160  [0x18be51190]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 21916  [0x104bfa968]  pol17.hpp:654
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22048  [0x104bfa9ec]  pol17.hpp:656
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22316  [0x104bfaaf8]  pol17.hpp:661
+          + ! 1 <deduplicated_symbol>  (in explore_g) + 3028  [0x104c058a8]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22268  [0x104bfaac8]  pol17.hpp:661
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22732  [0x104bfac98]  pol17.hpp:670
+          + ! 1 _xzm_free  (in libsystem_malloc.dylib) + 760  [0x18bc65364]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 816  [0x104bf56fc]  pol17.hpp:92
+          1866 playGame(sim::Map const&, pol::Near const&, pol::Params const&, pol::Params const&, int*, bool*)  (in explore_g) + 308  [0x104bf4b7c]  explore.cpp:34
+          + 1351 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10304  [0x104bf7c0c]  pol17.hpp:393
+          + ! 295 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 312,496,...  [0x104bfe570,0x104bfe628,...]  pol17.hpp:0
+          + ! 262 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 560,620,...  [0x104bfe668,0x104bfe6a4,...]  pol17.hpp:347
+          + ! 256 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 448,520,...  [0x104bfe5f8,0x104bfe640,...]  pol17.hpp:349
+          + ! 165 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 372,376  [0x104bfe5ac,0x104bfe5b0]  pol17.hpp:341
+          + ! 134 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 360,352,...  [0x104bfe5a0,0x104bfe598,...]  pol17.hpp:339
+          + ! 103 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 508,568,...  [0x104bfe634,0x104bfe670,...]  pol17.hpp:348
+          + ! 82 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 404  [0x104bfe5cc]  pol17.hpp:345
+          + ! 21 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 592,460,...  [0x104bfe688,0x104bfe604,...]  pol17.hpp:350
+          + ! 13 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 392  [0x104bfe5c0]  pol17.hpp:344
+          + ! 7 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 104  [0x104bfe4a0]  pol17.hpp:329
+          + ! : 7 _platform_memset_pattern16  (in libsystem_platform.dylib) + 260,208,...  [0x18be4f284,0x18be4f250,...]
+          + ! 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 76  [0x104bfe484]  pol17.hpp:328
+          + ! : 3 _tlv_get_addr  (in libdyld.dylib) + 0,4  [0x18ba54388,0x18ba5438c]
+          + ! 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 68  [0x104bfe47c]  pol17.hpp:328
+          + ! 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 164,176  [0x104bfe4dc,0x104bfe4e8]  pol17.hpp:332
+          + ! 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 192  [0x104bfe4f8]  pol17.hpp:334
+          + ! 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 120  [0x104bfe4b0]  pol17.hpp:0
+          + ! : 1 _tlv_get_addr  (in libdyld.dylib) + 20  [0x18ba5439c]
+          + ! 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 224  [0x104bfe518]  pol17.hpp:336
+          + ! : 1 _tlv_get_addr  (in libdyld.dylib) + 0  [0x18ba54388]
+          + ! 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 212  [0x104bfe50c]  pol17.hpp:336
+          + ! 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 380  [0x104bfe5b4]  pol17.hpp:343
+          + 72 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 8640,10736,...  [0x104bf758c,0x104bf7dbc,...]  pol17.hpp:0
+          + 37 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10632  [0x104bf7d54]  pol17.hpp:397
+          + ! 18 <deduplicated_symbol>  (in explore_g) + 528  [0x104bffc4c]
+          + ! : 7 <deduplicated_symbol>  (in explore_g) + 1108,1012,...  [0x104bffe90,0x104bffe30,...]
+          + ! : 6 <deduplicated_symbol>  (in explore_g) + 528  [0x104bffc4c]
+          + ! : | 3 <deduplicated_symbol>  (in explore_g) + 528  [0x104bffc4c]
+          + ! : | + 2 <deduplicated_symbol>  (in explore_g) + 444  [0x104bffbf8]
+          + ! : | + ! 2 <deduplicated_symbol>  (in explore_g) + 108,424  [0x104c00898,0x104c009d4]
+          + ! : | + 1 <deduplicated_symbol>  (in explore_g) + 528  [0x104bffc4c]
+          + ! : | +   1 <deduplicated_symbol>  (in explore_g) + 1008  [0x104bffe2c]
+          + ! : | 3 <deduplicated_symbol>  (in explore_g) + 864,1448,...  [0x104bffd9c,0x104bfffe4,...]
+          + ! : 5 <deduplicated_symbol>  (in explore_g) + 444  [0x104bffbf8]
+          + ! :   5 <deduplicated_symbol>  (in explore_g) + 96,300,...  [0x104c0088c,0x104c00958,...]
+          + ! 8 <deduplicated_symbol>  (in explore_g) + 444  [0x104bffbf8]
+          + ! : 8 <deduplicated_symbol>  (in explore_g) + 420,424,...  [0x104c009d0,0x104c009d4,...]
+          + ! 8 <deduplicated_symbol>  (in explore_g) + 1352,1476,...  [0x104bfff84,0x104c00000,...]
+          + ! 3 <deduplicated_symbol>  (in explore_g) + 348  [0x104bffb98]
+          + !   3 <deduplicated_symbol>  (in explore_g) + 8,432,...  [0x104c0003c,0x104c001e4,...]
+          + 37 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19780  [0x104bfa110]  pol17.hpp:600
+          + ! 9 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 360,352  [0x104bfe5a0,0x104bfe598]  pol17.hpp:339
+          + ! 8 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 448,520,...  [0x104bfe5f8,0x104bfe640,...]  pol17.hpp:349
+          + ! 6 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 496,312,...  [0x104bfe628,0x104bfe570,...]  pol17.hpp:0
+          + ! 5 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 372  [0x104bfe5ac]  pol17.hpp:341
+          + ! 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 404  [0x104bfe5cc]  pol17.hpp:345
+          + ! 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 392  [0x104bfe5c0]  pol17.hpp:344
+          + ! 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 560,620  [0x104bfe668,0x104bfe6a4]  pol17.hpp:347
+          + ! 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 628  [0x104bfe6ac]  pol17.hpp:348
+          + ! 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 32  [0x104bfe458]  pol17.hpp:355
+          + 26 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9160,9184,...  [0x104bf7794,0x104bf77ac,...]  pol17.hpp:316
+          + 21 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 3044,2976,...  [0x104bf5fb0,0x104bf5f6c,...]  pol17.hpp:153
+          + 19 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 21664  [0x104bfa86c]  pol17.hpp:647
+          + ! 9 <deduplicated_symbol>  (in explore_g) + 2216  [0x104c0557c]
+          + ! : 7 <deduplicated_symbol>  (in explore_g) + 2972,3020,...  [0x104c05870,0x104c058a0,...]
+          + ! : 1 <deduplicated_symbol>  (in explore_g) + 2216  [0x104c0557c]
+          + ! : | 1 <deduplicated_symbol>  (in explore_g) + 132  [0x104c04d58]
+          + ! : 1 <deduplicated_symbol>  (in explore_g) + 396  [0x104c05c0c]
+          + ! 8 <deduplicated_symbol>  (in explore_g) + 3340,3020,...  [0x104c059e0,0x104c058a0,...]
+          + ! 2 <deduplicated_symbol>  (in explore_g) + 2128  [0x104c05524]
+          + !   2 <deduplicated_symbol>  (in explore_g) + 200,228  [0x104c05e94,0x104c05eb0]
+          + 18 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 17884,17956,...  [0x104bf99a8,0x104bf99f0,...]  pol17.hpp:552
+          + 17 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9088  [0x104bf774c]  pol17.hpp:313
+          + 17 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16004,16132,...  [0x104bf9250,0x104bf92d0,...]  pol17.hpp:526
+          + 14 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 17724,17836,...  [0x104bf9908,0x104bf9978,...]  pol17.hpp:551
+          + 11 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 8656,8664  [0x104bf759c,0x104bf75a4]  pol17.hpp:270
+          + 11 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16988  [0x104bf9628]  pol17.hpp:540
+          + ! 4 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 1336,1372,...  [0x104c02664,0x104c02688,...]  sort.h:761
+          + ! 4 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 480  [0x104c0230c]  sort.h:824
+          + ! : 4 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 1076,1100,...  [0x104c02560,0x104c02578,...]  sort.h:759
+          + ! 3 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 1072,1092,...  [0x104c0255c,0x104c02570,...]  sort.h:759
+          + 10 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 8672,8680  [0x104bf75ac,0x104bf75b4]  pol17.hpp:271
+          + 10 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 18104,17624,...  [0x104bf9a84,0x104bf98a4,...]  pol17.hpp:550
+          + 9 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16840,16816,...  [0x104bf9594,0x104bf957c,...]  pol17.hpp:537
+          + 8 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 17416  [0x104bf97d4]  pol17.hpp:549
+          + 7 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 15180,15204,...  [0x104bf8f18,0x104bf8f30,...]  pol17.hpp:509
+          + 7 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 15448,15456,...  [0x104bf9024,0x104bf902c,...]  pol17.hpp:512
+          + 7 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 17984,18176,...  [0x104bf9a0c,0x104bf9acc,...]  pol17.hpp:553
+          + 5 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 3264,3376,...  [0x104bf608c,0x104bf60fc,...]  pol17.hpp:160
+          + 5 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 6264,6208,...  [0x104bf6c44,0x104bf6c0c,...]  pol17.hpp:257
+          + 5 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 8700  [0x104bf75c8]  pol17.hpp:272
+          + 5 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9116,9128  [0x104bf7768,0x104bf7774]  pol17.hpp:314
+          + 5 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10096  [0x104bf7b3c]  pol17.hpp:385
+          + ! 5 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18bdfe7e8]
+          + !   2 _xzm_xzone_malloc_tiny  (in libsystem_malloc.dylib) + 24,176  [0x18bc69eec,0x18bc69f84]
+          + !   1 <deduplicated_symbol>  (in libsystem_malloc.dylib) + 212  [0x18bc641a8]
+          + !   1 _xzm_xzone_malloc  (in libsystem_malloc.dylib) + 0  [0x18bc648c0]
+          + !   1 malloc_type_malloc  (in libsystem_malloc.dylib) + 36  [0x18bc58008]
+          + 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2836,2840  [0x104bf5ee0,0x104bf5ee4]  pol17.hpp:150
+          + 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 8500,8464  [0x104bf7500,0x104bf74dc]  pol17.hpp:264
+          + 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9052  [0x104bf7728]  pol17.hpp:311
+          + 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9372,9268,...  [0x104bf7868,0x104bf7800,...]  pol17.hpp:319
+          + 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 12408  [0x104bf8444]  pol17.hpp:438
+          + ! 4 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18bdfe7e8]
+          + !   2 _xzm_xzone_malloc_tiny  (in libsystem_malloc.dylib) + 176,312  [0x18bc69f84,0x18bc6a00c]
+          + !   1 _xzm_xzone_malloc  (in libsystem_malloc.dylib) + 192  [0x18bc64980]
+          + !   1 malloc_type_malloc  (in libsystem_malloc.dylib) + 24  [0x18bc57ffc]
+          + 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16908,16896  [0x104bf95d8,0x104bf95cc]  pol17.hpp:539
+          + 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 20852  [0x104bfa540]  pol17.hpp:637
+          + 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 21876,21864,...  [0x104bfa940,0x104bfa934,...]  pol17.hpp:652
+          + 4 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22316  [0x104bfaaf8]  pol17.hpp:661
+          + ! 3 <deduplicated_symbol>  (in explore_g) + 2964,2988,...  [0x104c05868,0x104c05880,...]
+          + ! 1 <deduplicated_symbol>  (in explore_g) + 2420  [0x104c05648]
+          + !   1 <deduplicated_symbol>  (in explore_g) + 472  [0x104c05c58]
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10128  [0x104bf7b5c]  __split_buffer:0
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2844  [0x104bf5ee8]  pol17.hpp:151
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 6428,7148,...  [0x104bf6ce8,0x104bf6fb8,...]  pol17.hpp:258
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 18864  [0x104bf9d7c]  pol17.hpp:572
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19684,19708,...  [0x104bfa0b0,0x104bfa0c8,...]  pol17.hpp:598
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19976  [0x104bfa1d4]  pol17.hpp:607
+          + 3 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 40  [0x104bfe460]  pol17.hpp:355
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 4516,4568  [0x104bf6570,0x104bf65a4]  pol17.hpp:166
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 4652,4692  [0x104bf65f8,0x104bf6620]  pol17.hpp:174
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9544  [0x104bf7914]  pol17.hpp:368
+          + ! 1 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18bdfe7e8]
+          + ! : 1 <deduplicated_symbol>  (in libsystem_malloc.dylib) + 188  [0x18bc64190]
+          + ! 1 operator new(unsigned long)  (in libc++abi.dylib) + 0  [0x18bdfe7b4]
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10204,10336  [0x104bf7ba8,0x104bf7c2c]  pol17.hpp:394
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 11832,11976  [0x104bf8204,0x104bf8294]  pol17.hpp:406
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10776  [0x104bf7de4]  pol17.hpp:415
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10892  [0x104bf7e58]  pol17.hpp:417
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 12400  [0x104bf843c]  pol17.hpp:436
+          + ! 2 _platform_memmove  (in libsystem_platform.dylib) + 180  [0x18be51474]
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 13028  [0x104bf86b0]  pol17.hpp:468
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 15528  [0x104bf9074]  pol17.hpp:515
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16128,16192  [0x104bf92cc,0x104bf930c]  pol17.hpp:525
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 18544  [0x104bf9c3c]  pol17.hpp:569
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 18584,18872  [0x104bf9c64,0x104bf9d84]  pol17.hpp:573
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19480  [0x104bf9fe4]  pol17.hpp:589
+          + ! 2 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18bdfe7e8]
+          + !   1 _xzm_xzone_malloc  (in libsystem_malloc.dylib) + 192  [0x18bc64980]
+          + !   1 _xzm_xzone_malloc_tiny  (in libsystem_malloc.dylib) + 488  [0x18bc6a0bc]
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22000,22016  [0x104bfa9bc,0x104bfa9cc]  pol17.hpp:655
+          + 2 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22732  [0x104bfac98]  pol17.hpp:670
+          + ! 1 _xzm_free  (in libsystem_malloc.dylib) + 1048  [0x18bc65484]
+          + ! : 1 mach_absolute_time  (in libsystem_kernel.dylib) + 112  [0x18be04110]
+          + ! 1 _xzm_free  (in libsystem_malloc.dylib) + 760  [0x18bc65364]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 11720  [0x104bf8194]  allocate.h:0
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 1616  [0x104bf5a1c]  pol17.hpp:0
+          + ! 1 _tlv_get_addr  (in libdyld.dylib) + 4  [0x18ba5438c]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 856  [0x104bf5724]  pol17.hpp:101
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 1304  [0x104bf58e4]  pol17.hpp:113
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 1440  [0x104bf596c]  pol17.hpp:122
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2048  [0x104bf5bcc]  pol17.hpp:137
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2536  [0x104bf5db4]  pol17.hpp:145
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2548  [0x104bf5dc0]  pol17.hpp:146
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 2812  [0x104bf5ec8]  pol17.hpp:154
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 3180  [0x104bf6038]  pol17.hpp:158
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 3924  [0x104bf6320]  pol17.hpp:163
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 3952  [0x104bf633c]  pol17.hpp:164
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 8852  [0x104bf7660]  pol17.hpp:286
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9668  [0x104bf7990]  pol17.hpp:373
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9696  [0x104bf79ac]  pol17.hpp:375
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 9996  [0x104bf7ad8]  pol17.hpp:382
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10140  [0x104bf7b68]  pol17.hpp:386
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 11724  [0x104bf8198]  pol17.hpp:404
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 10992  [0x104bf7ebc]  pol17.hpp:421
+          + ! 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 328  [0x104bfe580]  pol17.hpp:339
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 12428  [0x104bf8458]  pol17.hpp:440
+          + ! 1 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18bdfe7e8]
+          + !   1 _xzm_xzone_malloc_tiny  (in libsystem_malloc.dylib) + 488  [0x18bc6a0bc]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 13400  [0x104bf8824]  pol17.hpp:462
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 13728  [0x104bf896c]  pol17.hpp:469
+          + ! 1 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda3'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda3'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 1676  [0x104c01768]  sort.h:759
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 14344  [0x104bf8bd4]  pol17.hpp:487
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 14552  [0x104bf8ca4]  pol17.hpp:491
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 14628  [0x104bf8cf0]  pol17.hpp:495
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 15616  [0x104bf90cc]  pol17.hpp:516
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16520  [0x104bf9454]  pol17.hpp:522
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 15952  [0x104bf921c]  pol17.hpp:523
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16700  [0x104bf9508]  pol17.hpp:528
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 16620  [0x104bf94b8]  pol17.hpp:529
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 18672  [0x104bf9cbc]  pol17.hpp:575
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19472  [0x104bf9fdc]  pol17.hpp:589
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19508  [0x104bfa000]  pol17.hpp:591
+          + ! 1 _platform_memset  (in libsystem_platform.dylib) + 156  [0x18be5118c]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19896  [0x104bfa184]  pol17.hpp:602
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 19948  [0x104bfa1b8]  pol17.hpp:606
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 20632  [0x104bfa464]  pol17.hpp:625
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 20864  [0x104bfa54c]  pol17.hpp:636
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 21748  [0x104bfa8c0]  pol17.hpp:649
+          + ! 1 __bzero  (in libsystem_platform.dylib) + 24  [0x18be510a8]
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 21916  [0x104bfa968]  pol17.hpp:654
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22456  [0x104bfab84]  pol17.hpp:664
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 22580  [0x104bfac00]  pol17.hpp:665
+          + 1 pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g) + 44  [0x104bf53f8]  pol17.hpp:72
+          + ! 1 ___chkstk_darwin  (in libsystem_pthread.dylib) + 0  [0x18be42c20]
+          + 1 std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g) + 1560  [0x104c02744]  sort.h:829
+          57 playGame(sim::Map const&, pol::Near const&, pol::Params const&, pol::Params const&, int*, bool*)  (in explore_g) + 384  [0x104bf4bc8]  explore.cpp:35
+          + 13 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 2832,8208,...  [0x104bfbab8,0x104bfcfb8,...]  sim.hpp:0
+          + 6 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 2868,2848  [0x104bfbadc,0x104bfbac8]  sim.hpp:245
+          + 5 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 4036,4140,...  [0x104bfbf6c,0x104bfbfd4,...]  sim.hpp:267
+          + 4 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 5368,5560  [0x104bfc4a0,0x104bfc560]  sim.hpp:272
+          + 3 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 2240  [0x104bfb868]  sim.hpp:217
+          + 3 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 8248,8580  [0x104bfcfe0,0x104bfd12c]  sim.hpp:328
+          + 2 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 1656,1660  [0x104bfb620,0x104bfb624]  sim.hpp:189
+          + 2 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 2024  [0x104bfb790]  sim.hpp:210
+          + ! 1 DYLD-STUB$$bzero  (in explore_g) + 0  [0x104c0d9c4]
+          + ! 1 _platform_memset  (in libsystem_platform.dylib) + 140  [0x18be5117c]
+          + 2 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 2200  [0x104bfb840]  sim.hpp:214
+          + 2 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 2536,2728  [0x104bfb990,0x104bfba50]  sim.hpp:242
+          + 2 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 3156,3440  [0x104bfbbfc,0x104bfbd18]  sim.hpp:263
+          + 2 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 5140,5696  [0x104bfc3bc,0x104bfc5e8]  sim.hpp:273
+          + 2 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 7264  [0x104bfcc08]  sim.hpp:316
+          + 2 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 7844,7892  [0x104bfce4c,0x104bfce7c]  sim.hpp:317
+          + 2 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 8040,8420  [0x104bfcf10,0x104bfd08c]  sim.hpp:321
+          + 1 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 2244  [0x104bfb86c]  sim.hpp:218
+          + 1 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 2468  [0x104bfb94c]  sim.hpp:231
+          + 1 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 8112  [0x104bfcf58]  sim.hpp:322
+          + 1 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 8220  [0x104bfcfc4]  sim.hpp:327
+          + 1 sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g) + 8340  [0x104bfd03c]  sim.hpp:330
+          1 playGame(sim::Map const&, pol::Near const&, pol::Params const&, pol::Params const&, int*, bool*)  (in explore_g) + 1712  [0x104bf50f8]  explore.cpp:39
+
+Total number in stack (recursive counted multiple, when >=5):
+        9       <deduplicated_symbol>  (in explore_g) + 0  [0x104bffa3c]
+        8       <deduplicated_symbol>  (in explore_g) + 0  [0x104c04cd4]
+        8       <deduplicated_symbol>  (in explore_g) + 528  [0x104bffc4c]
+        8       _tlv_get_addr  (in libdyld.dylib) + 0  [0x18ba54388]
+        8       operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18bdfe7e8]
+        7       _platform_memset  (in libsystem_platform.dylib) + 0  [0x18be510f0]
+        6       _xzm_xzone_malloc_tiny  (in libsystem_malloc.dylib) + 0  [0x18bc69ed4]
+        5       <deduplicated_symbol>  (in explore_g) + 0  [0x104c0082c]
+        5       <deduplicated_symbol>  (in explore_g) + 444  [0x104bffbf8]
+        5       pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g) + 0  [0x104bfe438]  pol17.hpp:339
+
+Sort by top of stack, same collapsed (when >= 5):
+        pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda2'(int)::operator()(int) const  (in explore_g)        2783
+        pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)  (in explore_g)        774
+        <deduplicated_symbol>  (in explore_g)        108
+        sim::step(sim::Map const&, sim::State&, sim::Orders const&, sim::Orders const&, bool)  (in explore_g)        55
+        std::__introsort<std::_ClassicAlgPolicy, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, int*, false>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&, std::iterator_traits<int*>::difference_type, bool)  (in explore_g)        24
+        _platform_memset_pattern16  (in libsystem_platform.dylib)        16
+        _tlv_get_addr  (in libdyld.dylib)        13
+        _platform_memset  (in libsystem_platform.dylib)        10
+        _xzm_xzone_malloc_tiny  (in libsystem_malloc.dylib)        8
+        _platform_memmove  (in libsystem_platform.dylib)        5
+        std::__partition_with_equals_on_right[abi:nqe210106]<std::_ClassicAlgPolicy, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&>(int*, int*, pol::decide17(sim::Map const&, pol::Near const&, sim::State const&, int, pol::Params const&, pol::Persist&, sim::Orders&, int*)::'lambda4'(int, int)&)  (in explore_g)        5
+
+Binary Images:
+       0x104bf4000 -        0x104c0e683 +explore_g (0) <E586192B-D77A-328D-AFA4-77F23EE7A8D8> /Users/*/Desktop/*/explore_g
+       0x18b9e4000 -        0x18ba36b4b  libobjc.A.dylib (951.7) <2E858E25-1FF6-3DA6-84F6-911630620512> /usr/lib/libobjc.A.dylib
+       0x18ba37000 -        0x18ba6bb34  libdyld.dylib (1376.6) <2C3C5F75-3686-39A1-9202-BD4D2133379D> /usr/lib/system/libdyld.dylib
+       0x18ba6c000 -        0x18bb11ec7  dyld (1.0.0 - 1376.6) <9F682DCF-340C-3BFA-BCDD-DD702F30313E> /usr/lib/dyld
+       0x18bb12000 -        0x18bb15228  libsystem_blocks.dylib (96) <2EA73169-CF76-3DD1-9869-F23C8B338022> /usr/lib/system/libsystem_blocks.dylib
+       0x18bb16000 -        0x18bb6a51f  libxpc.dylib (3102.100.102) <618039C8-9965-3782-A7D2-90FD4C3DD66F> /usr/lib/system/libxpc.dylib
+       0x18bb6b000 -        0x18bb8b9bf  libsystem_trace.dylib (1861.100.19) <08629650-54FC-3AA6-910E-EACA563804D0> /usr/lib/system/libsystem_trace.dylib
+       0x18bb8c000 -        0x18bc39daf  libcorecrypto.dylib (1922.101.2) <D1EC203E-9B2E-391B-8DE3-7C58F0589437> /usr/lib/system/libcorecrypto.dylib
+       0x18bc3a000 -        0x18bc8a1d7  libsystem_malloc.dylib (812.100.31) <2AD21BE3-FFDB-31D5-A3D7-2F7F672D6E92> /usr/lib/system/libsystem_malloc.dylib
+       0x18bc8b000 -        0x18bcd223f  libdispatch.dylib (1542.100.32) <E17AA23F-DB2A-3302-B14C-F6B08C540FCF> /usr/lib/system/libdispatch.dylib
+       0x18bcd3000 -        0x18bcd5ffb  libsystem_featureflags.dylib (103) <0DE01F76-4B36-35A2-98F9-43DD147EDD95> /usr/lib/system/libsystem_featureflags.dylib
+       0x18bcd6000 -        0x18bd56ef7  libsystem_c.dylib (1752.100.10) <66EBD321-6899-3863-BA24-5CFC3076A0CB> /usr/lib/system/libsystem_c.dylib
+       0x18bd57000 -        0x18bde7ae7  libc++.1.dylib (2100.43) <1E9541EC-C564-38CB-BED6-46F708E8D863> /usr/lib/libc++.1.dylib
+       0x18bde8000 -        0x18be0275f  libc++abi.dylib (2100.43) <E8D325ED-3B97-325E-B494-B1B0FF93D133> /usr/lib/libc++abi.dylib
+       0x18be03000 -        0x18be4028f  libsystem_kernel.dylib (12377.101.15) <51565B39-F595-3E96-A217-FEF29815057A> /usr/lib/system/libsystem_kernel.dylib
+       0x18be41000 -        0x18be4db3b  libsystem_pthread.dylib (539.100.4) <E7A73008-0C09-31E3-9DD9-0C61652F0E85> /usr/lib/system/libsystem_pthread.dylib
+       0x18be4e000 -        0x18be568f3  libsystem_platform.dylib (375.100.10) <D93EC420-F465-3A3A-916D-A04AF9B023EB> /usr/lib/system/libsystem_platform.dylib
+       0x18be57000 -        0x18be866eb  libsystem_info.dylib (600) <201FD67C-3DF6-3788-B132-A69CAA2AA3D7> /usr/lib/system/libsystem_info.dylib
+       0x18fe1c000 -        0x18fe25e5f  libsystem_darwin.dylib (1752.100.10) <D5BA0CAB-F283-3620-AAA9-1EEB718E1BA8> /usr/lib/system/libsystem_darwin.dylib
+       0x190287000 -        0x190298f5b  libsystem_notify.dylib (348.100.7) <9F46F30B-B7C0-3DD7-AC38-57B78C7971FF> /usr/lib/system/libsystem_notify.dylib
+       0x192551000 -        0x19256bf5b  libsystem_networkextension.dylib (2226.101.1) <85169C7B-48DD-3542-AD38-F1B88EA2A95A> /usr/lib/system/libsystem_networkextension.dylib
+       0x1925ee000 -        0x192605fdf  libsystem_asl.dylib (406) <6427D987-7938-3278-8C14-10FB9C06BBD5> /usr/lib/system/libsystem_asl.dylib
+       0x1941a9000 -        0x1941b1387  libsystem_symptoms.dylib (2169.100.30) <28B6E34E-9C7D-3437-A3F1-A3C979DE579A> /usr/lib/system/libsystem_symptoms.dylib
+       0x198444000 -        0x19847c25f  libsystem_containermanager.dylib (725.100.37) <14750F95-BB3A-3654-8610-A05A454643A8> /usr/lib/system/libsystem_containermanager.dylib
+       0x199854000 -        0x1998585d7  libsystem_configuration.dylib (1405.100.8) <634F597D-F8BD-3C00-B967-86047FC15D14> /usr/lib/system/libsystem_configuration.dylib
+       0x199859000 -        0x19985f8cf  libsystem_sandbox.dylib (2680.100.174) <AF76231D-EADC-3399-9414-6AD90FB4EA89> /usr/lib/system/libsystem_sandbox.dylib
+       0x19ae9f000 -        0x19aea21fb  libquarantine.dylib (196.100.8) <268FEB6E-A237-3050-BFFF-AE3A66B7EAD4> /usr/lib/system/libquarantine.dylib
+       0x19b63e000 -        0x19b644d03  libsystem_coreservices.dylib (191.4.5) <7129349D-04F9-3C3C-BF37-3082C1468654> /usr/lib/system/libsystem_coreservices.dylib
+       0x19bbc3000 -        0x19bc00a77  libsystem_m.dylib (3312.100.1) <83B173CD-7F32-3901-8E67-C0B2676BE015> /usr/lib/system/libsystem_m.dylib
+       0x19bc02000 -        0x19bc05527  libmacho.dylib (1376.6) <9729ECEA-0A08-32E3-8BDB-B42FC15FF258> /usr/lib/system/libmacho.dylib
+       0x19bc1f000 -        0x19bc2c3a7  libcommonCrypto.dylib (600035) <710EC5FA-F77C-3646-A9E3-C037C42E1539> /usr/lib/system/libcommonCrypto.dylib
+       0x19bc2d000 -        0x19bc36ca3  libunwind.dylib (2100.2) <FB0518B9-DF0F-3A03-A74B-AF1B21C26F8B> /usr/lib/system/libunwind.dylib
+       0x19bc3f000 -        0x19bc497ff  libcopyfile.dylib (240) <0B7FF027-5579-3CBF-A12B-68A4FD36641C> /usr/lib/system/libcopyfile.dylib
+       0x19bc4a000 -        0x19bc4d987  libcompiler_rt.dylib (103.3) <65E29E6E-7042-3F73-A1D2-F2C4EBCD7524> /usr/lib/system/libcompiler_rt.dylib
+       0x19bc4e000 -        0x19bc5278b  libsystem_collections.dylib (1752.100.10) <B81193DE-3BEC-3340-86D0-DB7F3683D135> /usr/lib/system/libsystem_collections.dylib
+       0x19bc53000 -        0x19bc564cf  libsystem_secinit.dylib (168.100.7) <A6B77B36-195D-33F8-8058-FE0B5BFA9D37> /usr/lib/system/libsystem_secinit.dylib
+       0x19bc57000 -        0x19bc59bf7  libremovefile.dylib (85.100.6) <BD89B1A3-0D06-3881-B5E1-EFC6CFBDFCC1> /usr/lib/system/libremovefile.dylib
+       0x19bc5a000 -        0x19bc5af27  libkeymgr.dylib (31) <DE8F8219-0072-35C2-8932-C065491ED15D> /usr/lib/system/libkeymgr.dylib
+       0x19bc5b000 -        0x19bc63e3f  libsystem_dnssd.dylib (2881.100.56.0.1) <DEC8BDD2-366C-3BF9-A123-35744DB06354> /usr/lib/system/libsystem_dnssd.dylib
+       0x19bc64000 -        0x19bc6909b  libcache.dylib (95) <4D6833A3-C910-3A76-AA8A-303F698B36BF> /usr/lib/system/libcache.dylib
+       0x19bc6a000 -        0x19bc6bce3  libSystem.B.dylib (1356) <E05F5341-06B7-365E-8014-E9CD64C352FE> /usr/lib/libSystem.B.dylib
+       0x28e54d000 -        0x28e554349  libRosetta.dylib (367.5) <2FC1EF06-04C4-35FC-8DC3-BEA1E9FBD63F> /usr/lib/libRosetta.dylib
+       0x29022a000 -        0x29022da4b  libsystem_darwindirectory.dylib (122) <CCAA2170-32DD-34BD-A927-32DF30893969> /usr/lib/system/libsystem_darwindirectory.dylib
+       0x29022e000 -        0x2902375a7  libsystem_eligibility.dylib (319.101.1) <2D19994A-87BB-34B8-A343-CB8DD47FF110> /usr/lib/system/libsystem_eligibility.dylib
+       0x290238000 -        0x29023f8db  libsystem_sanitizers.dylib (26) <FCB93D2F-4437-3089-A43F-A19BC23DD65B> /usr/lib/system/libsystem_sanitizers.dylib
+       0x290240000 -        0x290240bb7  libsystem_trial.dylib (474.2.18) <5BB81430-4E33-3160-94D2-1FFB2B614DB2> /usr/lib/system/libsystem_trial.dylib
