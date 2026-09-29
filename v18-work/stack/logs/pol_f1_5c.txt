@@ -1,6 +1,0 @@
-bot_a9 vs bot17: 30W 0D 10L /40 wr=0.75 margin=8.62 ff=0 inst=7 maxms=193.7 avgmax=99.5 Flost=4.7/6.2
-   lost: [(10003, 'Y', 0, 36, 'instant'), (10016, 'Y', 14, 19, 'score'), (10017, 'Y', 0, 41, 'instant'), (10020, 'Y', 0, 31, 'instant'), (10023, 'Y', 4, 33, 'score'), (10024, 'Y', 0, 32, 'instant'), (10025, 'Y', 0, 32, 'instant'), (10027, 'Y', 14, 18, 'score'), (10031, 'Y', 0, 30, 'instant'), (10038, 'Y', 0, 41, 'instant')]
-bot_a9 vs bot16: 37W 0D 3L /40 wr=0.925 margin=17.43 ff=0 inst=2 maxms=343.0 avgmax=94.7 Flost=5.0/7.2
-   lost: [(10002, 'Y', 14, 15, 'score'), (10031, 'Y', 0, 30, 'instant'), (10038, 'Y', 0, 41, 'instant')]
-bot_a9 vs bot15: 33W 0D 7L /40 wr=0.825 margin=16.3 ff=0 inst=3 maxms=159.8 avgmax=87.0 Flost=4.5/5.7
-   lost: [(10001, 'Y', 5, 32, 'score'), (10005, 'Y', 13, 20, 'score'), (10011, 'Y', 15, 22, 'score'), (10012, 'Y', 0, 29, 'instant'), (10017, 'Y', 0, 41, 'instant'), (10038, 'Y', 0, 41, 'instant'), (10039, 'Y', 12, 23, 'score')]

@@ -1,4 +1,0 @@
-bot_a4c vs bot17: 39W 0D 1L /40 wr=0.975 margin=25.52 ff=0 inst=0 maxms=1967.3 avgmax=434.2
-   lost: [(10040, 'Y', 2, 39, 'score')]
-bot_a4c vs bot16: 37W 0D 3L /40 wr=0.925 margin=23.6 ff=0 inst=1 maxms=1114.8 avgmax=420.6
-   lost: [(10049, 'Y', 16, 17, 'score'), (10058, 'Y', 0, 24, 'instant'), (10070, 'Y', 18, 19, 'score')]

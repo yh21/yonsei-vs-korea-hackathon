@@ -1,7 +1,0 @@
-bot_a28c vs blitz: 20W 0D 0L /20 wr=1.0 margin=25.65 ff=0 inst=0 maxms=339.9 avgmax=219.6 Flost=12.2/8.6
-bot_a28c vs hunter: 20W 0D 0L /20 wr=1.0 margin=32.6 ff=0 inst=0 maxms=184.1 avgmax=153.4 Flost=2.3/7.0
-bot_a28c vs rusher: 18W 0D 2L /20 wr=0.9 margin=25.45 ff=0 inst=0 maxms=213.7 avgmax=147.2 Flost=7.2/15.7
-   lost: [(10008, 'K', 11, 18, 'score'), (10009, 'Y', 18, 19, 'score')]
-bot_a28c vs turtle: 20W 0D 0L /20 wr=1.0 margin=30.0 ff=0 inst=0 maxms=270.2 avgmax=192.8 Flost=7.5/14.1
-bot_a28c vs cand_sim: 20W 0D 0L /20 wr=1.0 margin=28.45 ff=0 inst=0 maxms=525.9 avgmax=195.4 Flost=3.4/17.8
-bot_a28c vs cand_tempo: 20W 0D 0L /20 wr=1.0 margin=31.1 ff=0 inst=0 maxms=291.9 avgmax=150.6 Flost=0.5/15.3

@@ -1,1 +1,0 @@
-bot_a4c vs bot17: 40W 0D 0L /40 wr=1.0 margin=29.65 ff=0 inst=0 maxms=236.9 avgmax=173.8

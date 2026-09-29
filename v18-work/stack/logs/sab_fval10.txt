@@ -1,2 +1,0 @@
-bot_a15c vs bot_a15d: 11W 0D 21L /32 wr=0.344 margin=-1.19 ff=0 inst=0 maxms=366.0 avgmax=75.1 Flost=11.3/10.7
-   lost: [(10000, 'K', 10, 19, 'score'), (10001, 'Y', 4, 28, 'score'), (10002, 'Y', 14, 15, 'score'), (10002, 'K', 14, 14, 'occupation_turns'), (10003, 'Y', 8, 31, 'score'), (10003, 'K', 10, 25, 'score'), (10004, 'K', 10, 18, 'score'), (10005, 'K', 1, 28, 'score'), (10006, 'Y', 18, 19, 'score'), (10006, 'K', 17, 17, 'occupation_turns'), (10007, 'Y', 17, 22, 'score'), (10008, 'Y', 10, 23, 'score'), (10008, 'K', 12, 16, 'score'), (10009, 'Y', 7, 28, 'score')]

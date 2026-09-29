@@ -1,2 +1,0 @@
-bot_a2 vs bot17: 39W 0D 1L /40 wr=0.975 margin=27.2 ff=0 inst=1 maxms=657.4 avgmax=227.5
-   lost: [(10010, 'Y', 0, 26, 'instant')]

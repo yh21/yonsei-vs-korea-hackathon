@@ -1,6 +1,0 @@
-bot_a4c vs blitz: 9W 0D 3L /12 wr=0.75 margin=16.33 ff=0 inst=0 maxms=479.5 avgmax=242.0
-   lost: [(10003, 'Y', 18, 21, 'score'), (10007, 'Y', 18, 21, 'score'), (10010, 'Y', 3, 25, 'score')]
-bot_a4c vs hunter: 12W 0D 0L /12 wr=1.0 margin=32.5 ff=0 inst=0 maxms=935.3 avgmax=343.8
-bot_a4c vs rusher: 11W 0D 1L /12 wr=0.917 margin=26.75 ff=0 inst=0 maxms=1679.5 avgmax=719.1
-   lost: [(10000, 'Y', 15, 18, 'score')]
-bot_a4c vs turtle: 12W 0D 0L /12 wr=1.0 margin=29.75 ff=0 inst=0 maxms=740.1 avgmax=428.4

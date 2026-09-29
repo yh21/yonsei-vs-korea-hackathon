@@ -1,2 +1,0 @@
-./v18-work/sim/bot vs ./bot_opp: 30W 0D 2L / 32  winrate=0.938  (Y승 15, K승 15)  avg_margin=26.72  forfeits=0 errors=0
-   lost(seed,side,my,opp,reason): [(10007, 'K', 0, 34, 'instant'), (10018, 'Y', 3, 34, 'score')]

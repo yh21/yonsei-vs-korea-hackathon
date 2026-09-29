@@ -1,8 +1,0 @@
-./v18-work/tempo/bot vs ./bot17: 0W 80D 0L / 80  winrate=0.5  (Y승 0, K승 0)  avg_margin=0.0  forfeits=0 errors=0
-./v18-work/tempo/bot vs ./bot16: 44W 0D 36L / 80  winrate=0.55  (Y승 22, K승 22)  avg_margin=-0.57  forfeits=0 errors=0
-   lost(seed,side,my,opp,reason): [(10000, 'Y', 14, 16, 'score'), (10000, 'K', 14, 16, 'score'), (10001, 'Y', 5, 32, 'score'), (10001, 'K', 5, 32, 'score'), (10004, 'Y', 14, 15, 'score'), (10004, 'K', 14, 15, 'score'), (10005, 'Y', 15, 16, 'score'), (10005, 'K', 15, 16, 'score'), (10006, 'Y', 15, 22, 'score'), (10006, 'K', 15, 22, 'score'), (10010, 'Y', 0, 30, 'instant'), (10010, 'K', 0, 30, 'instant')]
-./v18-work/tempo/bot vs ./bot15: 56W 0D 24L / 80  winrate=0.7  (Y승 28, K승 28)  avg_margin=9.5  forfeits=0 errors=0
-   lost(seed,side,my,opp,reason): [(10001, 'Y', 1, 34, 'score'), (10001, 'K', 1, 34, 'score'), (10007, 'Y', 15, 20, 'score'), (10007, 'K', 15, 20, 'score'), (10016, 'Y', 14, 23, 'score'), (10016, 'K', 14, 23, 'score'), (10017, 'Y', 0, 41, 'instant'), (10017, 'K', 0, 41, 'instant'), (10026, 'Y', 13, 25, 'score'), (10026, 'K', 13, 25, 'score'), (10029, 'Y', 12, 19, 'score'), (10029, 'K', 12, 19, 'score')]
-./v18-work/tempo/bot vs ./bot_opp: 75W 0D 5L / 80  winrate=0.938  (Y승 38, K승 37)  avg_margin=29.18  forfeits=0 errors=0
-   lost(seed,side,my,opp,reason): [(10000, 'K', 13, 17, 'score'), (10009, 'K', 13, 17, 'score'), (10018, 'Y', 14, 22, 'score'), (10018, 'K', 14, 18, 'score'), (10036, 'Y', 15, 17, 'score')]
-python3 v18-work/arena.py --bot ./v18-work/tempo/bot --opp ./bot17 ./bot16     271.01s user 38.48s system 98% cpu 5:15.44 total

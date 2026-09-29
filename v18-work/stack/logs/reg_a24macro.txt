@@ -1,4 +1,0 @@
-bot_a24c vs bot17: 20W 0D 0L /20 wr=1.0 margin=32.65 ff=0 inst=0 maxms=425.8 avgmax=219.7 Flost=0.7/15.9
-bot_a24c vs bot16: 20W 0D 0L /20 wr=1.0 margin=32.25 ff=0 inst=0 maxms=262.5 avgmax=196.3 Flost=0.7/15.7
-bot_a24c vs bot15: 20W 0D 0L /20 wr=1.0 margin=33.15 ff=0 inst=0 maxms=312.2 avgmax=179.8 Flost=0.7/15.2
-bot_a24c vs bot_opp: 20W 0D 0L /20 wr=1.0 margin=32.7 ff=0 inst=0 maxms=233.5 avgmax=169.3 Flost=3.9/14.1

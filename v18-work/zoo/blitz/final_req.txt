@@ -1,4 +1,0 @@
-./v18-work/zoo/blitz/bot vs ./bot8: 60W 0D 0L / 60  winrate=1.0  (Y승 30, K승 30)  avg_margin=31.87  forfeits=0 errors=0
-./v18-work/zoo/blitz/bot vs ./bot13: 60W 0D 0L / 60  winrate=1.0  (Y승 30, K승 30)  avg_margin=32.55  forfeits=0 errors=0
-./v18-work/zoo/blitz/bot vs ./bot17: 24W 0D 36L / 60  winrate=0.4  (Y승 13, K승 11)  avg_margin=-7.23  forfeits=0 errors=0
-   lost(seed,side,my,opp,reason): [(10000, 'Y', 11, 14, 'score'), (10000, 'K', 11, 14, 'score'), (10001, 'K', 8, 24, 'score'), (10002, 'Y', 14, 17, 'score'), (10002, 'K', 11, 12, 'score'), (10003, 'Y', 0, 36, 'instant'), (10003, 'K', 0, 32, 'instant'), (10004, 'Y', 0, 31, 'instant'), (10004, 'K', 0, 31, 'instant'), (10005, 'Y', 3, 21, 'score'), (10005, 'K', 0, 32, 'instant'), (10006, 'Y', 15, 16, 'score')]

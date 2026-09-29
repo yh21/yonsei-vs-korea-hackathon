@@ -1,2 +1,0 @@
-bot_a29c vs cand_blotto: 21W 0D 19L /40 wr=0.525 margin=1.38 ff=0 inst=11 maxms=315.2 avgmax=151.9 Flost=9.6/16.8
-   lost: [(10000, 'K', 16, 16, 'occupation_turns'), (10001, 'K', 0, 34, 'instant'), (10003, 'Y', 0, 38, 'instant'), (10004, 'Y', 0, 30, 'instant'), (10004, 'K', 8, 19, 'score'), (10005, 'Y', 0, 29, 'instant'), (10007, 'Y', 7, 23, 'score'), (10007, 'K', 14, 18, 'score'), (10008, 'Y', 10, 23, 'score'), (10010, 'Y', 0, 29, 'instant'), (10012, 'Y', 0, 31, 'instant'), (10014, 'K', 8, 23, 'score'), (10016, 'Y', 15, 17, 'score'), (10017, 'Y', 0, 42, 'instant')]

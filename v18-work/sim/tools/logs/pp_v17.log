@@ -1,8 +1,0 @@
-v17 vs pp:1: 12W 0D 8L /20 winrate=0.600 margin=8.30 maxms=3 avgms=0.9 ff=0 err=0 instant_losses=[]
-v17 vs pp:2: 12W 0D 8L /20 winrate=0.600 margin=6.10 maxms=4 avgms=0.9 ff=0 err=0 instant_losses=[(10001, 'Y', 0, 35), (10001, 'K', 0, 35)]
-v17 vs pp:3: 12W 0D 8L /20 winrate=0.600 margin=4.30 maxms=3 avgms=0.9 ff=0 err=0 instant_losses=[(10004, 'Y', 0, 29), (10004, 'K', 0, 29)]
-v17 vs pp:4: 14W 0D 6L /20 winrate=0.700 margin=8.20 maxms=4 avgms=0.9 ff=0 err=0 instant_losses=[(10007, 'Y', 0, 37), (10007, 'K', 0, 37)]
-v17 vs pp:5: 8W 0D 12L /20 winrate=0.400 margin=1.40 maxms=4 avgms=0.9 ff=0 err=0 instant_losses=[(10004, 'Y', 0, 28), (10004, 'K', 0, 28)]
-v17 vs pp:6: 10W 0D 10L /20 winrate=0.500 margin=0.90 maxms=4 avgms=0.9 ff=0 err=0 instant_losses=[]
-v17 vs pp:7: 16W 0D 4L /20 winrate=0.800 margin=12.10 maxms=4 avgms=0.9 ff=0 err=0 instant_losses=[(10004, 'Y', 0, 29), (10004, 'K', 0, 29)]
-v17 vs pp:8: 14W 0D 6L /20 winrate=0.700 margin=9.90 maxms=3 avgms=0.9 ff=0 err=0 instant_losses=[]

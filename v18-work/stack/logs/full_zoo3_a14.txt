@@ -1,4 +1,0 @@
-bot_a14c vs blitz: 20W 0D 0L /20 wr=1.0 margin=28.85 ff=0 inst=0 maxms=671.4 avgmax=327.2 Flost=9.3/7.2
-bot_a14c vs hunter: 20W 0D 0L /20 wr=1.0 margin=32.45 ff=0 inst=0 maxms=977.5 avgmax=290.2 Flost=1.5/4.4
-bot_a14c vs rusher: 20W 0D 0L /20 wr=1.0 margin=30.6 ff=0 inst=0 maxms=483.7 avgmax=228.3 Flost=4.9/10.9
-bot_a14c vs turtle: 20W 0D 0L /20 wr=1.0 margin=32.45 ff=0 inst=0 maxms=447.4 avgmax=175.6 Flost=7.8/15.6

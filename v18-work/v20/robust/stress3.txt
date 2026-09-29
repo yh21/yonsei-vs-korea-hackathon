@@ -1,4 +1,0 @@
-./v18-work/v20/robust/cand3 vs ./bot18: 6/6 wins
-./v18-work/v20/robust/cand3 vs ./v18-work/snap2/tempo/bot: 6/6 wins
-./v18-work/v20/robust/cand3 vs ./v18-work/zoo/blitz/bot: 6/6 wins
-timeout=100ms games=18 forfeits/errors=0 maxrss_children=23MB(macOS bytes)

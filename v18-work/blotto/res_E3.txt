@@ -1,4 +1,0 @@
-vs bot15    retries=3 37W 0D 3L /40 wr=0.925 margin=+22.2 forfeit=0 err=0 annih_losses=0
-   lost: [(10002, 'Y', 11, 19, 'scor'), (10034, 'Y', 11, 24, 'scor'), (10039, 'Y', 13, 20, 'scor')]
-vs bot16    retries=3 30W 0D 10L /40 wr=0.750 margin=+13.8 forfeit=0 err=0 annih_losses=4
-   lost: [(10002, 'Y', 12, 16, 'scor'), (10003, 'Y', 0, 37, 'inst'), (10011, 'Y', 12, 25, 'scor'), (10014, 'Y', 15, 17, 'scor'), (10016, 'Y', 3, 34, 'scor'), (10017, 'Y', 19, 20, 'scor'), (10020, 'Y', 0, 31, 'inst'), (10031, 'Y', 0, 26, 'inst'), (10034, 'Y', 2, 33, 'scor'), (10038, 'Y', 0, 33, 'inst')]

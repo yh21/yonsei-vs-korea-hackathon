@@ -1,9 +1,0 @@
-bot_a4c vs rush: 8W 0D 0L /8 wr=1.0 margin=32.5 ff=0 inst=0 maxms=698.1 avgmax=359.4
-bot_a4c vs turtle: 8W 0D 0L /8 wr=1.0 margin=33.75 ff=0 inst=0 maxms=249.6 avgmax=117.7
-bot_a4c vs chaser: 8W 0D 0L /8 wr=1.0 margin=33.38 ff=0 inst=0 maxms=187.9 avgmax=114.1
-bot_a4c vs random: 8W 0D 0L /8 wr=1.0 margin=30.25 ff=0 inst=0 maxms=174.0 avgmax=79.3
-bot_a4c vs camp: 8W 0D 0L /8 wr=1.0 margin=30.12 ff=0 inst=0 maxms=189.2 avgmax=134.7
-bot_a4c vs fhoard: 8W 0D 0L /8 wr=1.0 margin=34.0 ff=0 inst=0 maxms=237.6 avgmax=116.3
-bot_a4c vs splitter: 8W 0D 0L /8 wr=1.0 margin=33.25 ff=0 inst=0 maxms=130.3 avgmax=59.1
-bot_a4c vs lv1: 8W 0D 0L /8 wr=1.0 margin=33.75 ff=0 inst=0 maxms=185.4 avgmax=98.4
-bot_a4c vs lv2: 8W 0D 0L /8 wr=1.0 margin=33.75 ff=0 inst=0 maxms=181.9 avgmax=142.4

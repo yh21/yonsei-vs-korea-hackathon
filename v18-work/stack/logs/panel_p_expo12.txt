@@ -1,8 +1,0 @@
-bot_a5c vs bot17: 9W 0D 3L /12 wr=0.75 margin=11.92 ff=0 inst=1 maxms=1068.5 avgmax=651.8
-   lost: [(10002, 'Y', 14, 14, 'occupation_turns'), (10009, 'Y', 11, 24, 'score'), (10011, 'Y', 0, 33, 'instant')]
-bot_a5c vs bot16: 8W 0D 4L /12 wr=0.667 margin=0.5 ff=0 inst=1 maxms=1023.4 avgmax=577.0
-   lost: [(10001, 'Y', 3, 32, 'score'), (10002, 'Y', 14, 17, 'score'), (10003, 'Y', 13, 17, 'score'), (10010, 'Y', 0, 27, 'instant')]
-bot_a5c vs blitz: 5W 0D 7L /12 wr=0.417 margin=-6.5 ff=0 inst=2 maxms=781.6 avgmax=465.7
-   lost: [(10000, 'Y', 7, 20, 'score'), (10002, 'Y', 12, 19, 'score'), (10003, 'Y', 7, 32, 'score'), (10004, 'Y', 0, 31, 'instant'), (10005, 'Y', 12, 21, 'score'), (10008, 'Y', 8, 20, 'score'), (10010, 'Y', 0, 30, 'instant')]
-bot_a5c vs rusher: 10W 0D 2L /12 wr=0.833 margin=16.0 ff=0 inst=0 maxms=639.2 avgmax=378.9
-   lost: [(10008, 'Y', 15, 18, 'score'), (10009, 'Y', 13, 20, 'score')]

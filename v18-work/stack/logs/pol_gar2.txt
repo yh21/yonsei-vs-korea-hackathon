@@ -1,6 +1,0 @@
-bot_a3 vs bot17: 21W 0D 19L /40 wr=0.525 margin=0.53 ff=0 inst=6 maxms=101.3 avgmax=29.0
-   lost: [(10001, 'Y', 13, 24, 'score'), (10002, 'Y', 13, 14, 'score'), (10003, 'Y', 0, 35, 'instant'), (10004, 'Y', 14, 16, 'score'), (10006, 'Y', 0, 35, 'instant'), (10009, 'Y', 9, 28, 'score'), (10010, 'Y', 0, 30, 'instant'), (10013, 'Y', 10, 22, 'score'), (10014, 'Y', 6, 24, 'score'), (10015, 'Y', 16, 19, 'score'), (10016, 'Y', 15, 19, 'score'), (10018, 'Y', 16, 21, 'score'), (10019, 'Y', 0, 40, 'instant'), (10020, 'Y', 0, 29, 'instant')]
-bot_a3 vs bot16: 23W 0D 17L /40 wr=0.575 margin=4.9 ff=0 inst=4 maxms=137.8 avgmax=39.9
-   lost: [(10001, 'Y', 2, 32, 'score'), (10005, 'Y', 13, 20, 'score'), (10006, 'Y', 16, 17, 'score'), (10008, 'Y', 6, 27, 'score'), (10010, 'Y', 1, 30, 'score'), (10011, 'Y', 13, 20, 'score'), (10013, 'Y', 14, 18, 'score'), (10017, 'Y', 15, 26, 'score'), (10020, 'Y', 15, 18, 'score'), (10021, 'Y', 0, 36, 'instant'), (10023, 'Y', 0, 38, 'instant'), (10024, 'Y', 5, 28, 'score'), (10031, 'Y', 0, 28, 'instant'), (10033, 'Y', 18, 19, 'score')]
-bot_a3 vs bot15: 34W 0D 6L /40 wr=0.85 margin=11.93 ff=0 inst=1 maxms=139.7 avgmax=44.6
-   lost: [(10015, 'Y', 3, 32, 'score'), (10017, 'Y', 6, 37, 'score'), (10023, 'Y', 1, 40, 'score'), (10027, 'Y', 3, 29, 'score'), (10034, 'Y', 3, 31, 'score'), (10038, 'Y', 0, 41, 'instant')]
